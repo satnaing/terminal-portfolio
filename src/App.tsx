@@ -1,45 +1,86 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { useCallback, useState } from "react";
+import _ from "lodash";
+import Output from "./components/Output";
+
+type Command = {
+  cmd: string;
+  desc?: string;
+}[];
+
+export const commands: Command = [
+  { cmd: "whoami", desc: "about current user" },
+  { cmd: "about", desc: "about Sat Naing" },
+  { cmd: "projects", desc: "view projects that I've coded" },
+  { cmd: "edu-bg", desc: "my education background" },
+  { cmd: "email", desc: "send an email to me" },
+  { cmd: "clear", desc: "clear the terminal" },
+  { cmd: "help", desc: "check available commands" },
+  { cmd: "echo", desc: "print out anything" },
+  { cmd: "history", desc: "view command history" },
+  { cmd: "hero-section", desc: "display hero section" },
+  { cmd: "socials", desc: "check out my social accounts" },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputVal, setInputVal] = useState("");
+  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInputVal(e.target.value);
+    },
+    [inputVal]
+  );
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setCmdHistory([...cmdHistory, inputVal]);
+    setInputVal("");
+  };
+
+  const clearHistory = () => {
+    setCmdHistory([]);
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div>
+      <h1>Terminal Portfolio</h1>
+
+      {cmdHistory.map((cmdH, index) => {
+        const commandArray = _.split(cmdH, " ");
+        const validCommand = _.find(commands, { cmd: commandArray[0] });
+        return (
+          <div key={_.uniqueId(`${cmdH}_`)}>
+            <div>
+              visitor@terminal.satnaing.dev:~$: <span>{cmdH}</span>
+            </div>
+            {validCommand ? (
+              <Output
+                index={index}
+                cmd={commandArray[0]}
+                arg={_.drop(commandArray)}
+                clearHistory={clearHistory}
+                history={cmdHistory}
+              />
+            ) : (
+              <div>command not found: {cmdH}</div>
+            )}
+          </div>
+        );
+      })}
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="terminal-input">visitor@terminal.satnaing.dev:~$</label>
+        <input
+          type="text"
+          id="terminal-input"
+          autoComplete="off"
+          value={inputVal}
+          onChange={handleChange}
+        />
+      </form>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
