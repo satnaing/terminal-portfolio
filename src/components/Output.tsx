@@ -3,6 +3,7 @@ import Clear from "./commands/Clear";
 import Echo from "./commands/Echo";
 import Help from "./commands/Help";
 import History from "./commands/History";
+import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
   index: number;
@@ -20,7 +21,7 @@ const Output: React.FC<Props> = ({
   index,
 }) => {
   return (
-    <>
+    <OutputContainer>
       {
         {
           about: <About />,
@@ -31,7 +32,7 @@ const Output: React.FC<Props> = ({
           help: <Help />,
         }[cmd]
       }
-    </>
+    </OutputContainer>
   );
 };
 
