@@ -1,85 +1,34 @@
-import React, { useCallback, useState } from "react";
-import _ from "lodash";
-import Output from "./components/Output";
-
-type Command = {
-  cmd: string;
-  desc?: string;
-}[];
-
-export const commands: Command = [
-  { cmd: "whoami", desc: "about current user" },
-  { cmd: "about", desc: "about Sat Naing" },
-  { cmd: "projects", desc: "view projects that I've coded" },
-  { cmd: "edu-bg", desc: "my education background" },
-  { cmd: "email", desc: "send an email to me" },
-  { cmd: "clear", desc: "clear the terminal" },
-  { cmd: "help", desc: "check available commands" },
-  { cmd: "echo", desc: "print out anything" },
-  { cmd: "history", desc: "view command history" },
-  { cmd: "hero-section", desc: "display hero section" },
-  { cmd: "socials", desc: "check out my social accounts" },
-];
+import { useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "./components/styles/themes";
+import { useTheme } from "./hooks/useTheme";
+import GlobalStyle from "./components/styles/GlobalStyle";
+import Terminal from "./components/Terminal";
 
 function App() {
-  const [inputVal, setInputVal] = useState("");
-  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
+  // themes
+  const { theme, themeLoaded, setMode } = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setInputVal(e.target.value);
-    },
-    [inputVal]
-  );
+  useEffect(() => {
+    setSelectedTheme(theme);
+  }, [themeLoaded]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setCmdHistory([...cmdHistory, inputVal]);
-    setInputVal("");
-  };
-
-  const clearHistory = () => {
-    setCmdHistory([]);
+  const themeSwitcher = (switchTheme: Theme) => {
+    setSelectedTheme(switchTheme);
+    setMode(switchTheme);
   };
 
   return (
-    <div>
-      <h1>Terminal Portfolio</h1>
-
-      {cmdHistory.map((cmdH, index) => {
-        const commandArray = _.split(cmdH, " ");
-        const validCommand = _.find(commands, { cmd: commandArray[0] });
-        return (
-          <div key={_.uniqueId(`${cmdH}_`)}>
-            <div>
-              visitor@terminal.satnaing.dev:~$: <span>{cmdH}</span>
-            </div>
-            {validCommand ? (
-              <Output
-                index={index}
-                cmd={commandArray[0]}
-                arg={_.drop(commandArray)}
-                clearHistory={clearHistory}
-                history={cmdHistory}
-              />
-            ) : (
-              <div>command not found: {cmdH}</div>
-            )}
-          </div>
-        );
-      })}
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="terminal-input">visitor@terminal.satnaing.dev:~$</label>
-        <input
-          type="text"
-          id="terminal-input"
-          autoComplete="off"
-          value={inputVal}
-          onChange={handleChange}
-        />
-      </form>
-    </div>
+    <>
+      {themeLoaded && (
+        <ThemeProvider theme={selectedTheme}>
+          <GlobalStyle />
+          {/* <button onClick={() => themeSwitcher(themes.light)}>Click Me</button> */}
+          <Terminal />
+        </ThemeProvider>
+      )}
+    </>
   );
 }
 
