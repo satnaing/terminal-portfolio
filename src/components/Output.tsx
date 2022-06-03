@@ -2,6 +2,7 @@ import About from "./commands/About";
 import Clear from "./commands/Clear";
 import Echo from "./commands/Echo";
 import Help from "./commands/Help";
+import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
 import { OutputContainer } from "./styles/Output.styled";
 
@@ -30,6 +31,7 @@ const Output: React.FC<Props> = ({
           clear: <Clear clearHistory={clearHistory} />,
           history: <History index={index} cmd={cmd} history={history} />,
           help: <Help />,
+          "hero-section": <HeroSection />,
         }[cmd]
       }
     </OutputContainer>
