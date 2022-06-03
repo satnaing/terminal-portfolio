@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
 import _ from "lodash";
 import Output from "./Output";
+import { Wrapper } from "./styles/Terminal.styled";
+import TermInfo from "./TermInfo";
 
 type Command = {
   cmd: string;
@@ -43,14 +45,15 @@ const Terminal = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(cmdH, " ");
         const validCommand = _.find(commands, { cmd: commandArray[0] });
         return (
           <div key={_.uniqueId(`${cmdH}_`)}>
             <div>
-              visitor@terminal.satnaing.dev:~$: <span>{cmdH}</span>
+              <TermInfo />
+              <span>{cmdH}</span>
             </div>
             {validCommand ? (
               <Output
@@ -68,8 +71,11 @@ const Terminal = () => {
       })}
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="terminal-input">visitor@terminal.satnaing.dev:~$</label>
+        <label htmlFor="terminal-input">
+          <TermInfo />
+        </label>
         <input
+          title="terminal-input"
           type="text"
           id="terminal-input"
           autoComplete="off"
@@ -78,7 +84,7 @@ const Terminal = () => {
           onChange={handleChange}
         />
       </form>
-    </>
+    </Wrapper>
   );
 };
 
