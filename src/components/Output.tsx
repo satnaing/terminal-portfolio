@@ -1,6 +1,6 @@
 import _ from "lodash";
-import { useEffect, useRef } from "react";
-import { commands } from "../App";
+import { useEffect } from "react";
+import { commands } from "./Terminal";
 
 type Props = {
   index: number;
