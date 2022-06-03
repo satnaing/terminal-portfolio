@@ -33,6 +33,24 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
     color: ${({ theme }) => theme.colors.text[100]};
   }
 
+  /* ===== Custom Scroll Bar ===== */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.body};
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.scrollHandle};
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.scrollHandleHover};
+  }
+
   input[type=text] {
     background-color: ${({ theme }) => theme.colors.body};
     color: ${({ theme }) => theme.colors.text[100]};

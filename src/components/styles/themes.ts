@@ -3,6 +3,8 @@ export type Theme = {
   name: string;
   colors: {
     body: string;
+    scrollHandle: string;
+    scrollHandleHover: string;
     primary: string;
     secondary: string;
     text: {
@@ -23,6 +25,8 @@ const theme: Themes = {
     name: "dark",
     colors: {
       body: "#1D2A35",
+      scrollHandle: "#19252E",
+      scrollHandleHover: "#162028",
       primary: "#05CE91",
       secondary: "#FF9D00",
       text: {
@@ -37,6 +41,8 @@ const theme: Themes = {
     name: "light",
     colors: {
       body: "#EFF3F3",
+      scrollHandle: "#C1C1C1",
+      scrollHandleHover: "#AAAAAA",
       primary: "#027474",
       secondary: "#FF9D00",
       text: {
