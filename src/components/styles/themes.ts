@@ -26,9 +26,9 @@ const theme: Themes = {
       primary: "#05CE91",
       secondary: "#FF9D00",
       text: {
-        100: "#E5E7EB",
-        200: "#D1D5DB",
-        300: "#9CA3AF",
+        100: "#cbd5e1",
+        200: "#94a3b8",
+        300: "#64748b",
       },
     },
   },
