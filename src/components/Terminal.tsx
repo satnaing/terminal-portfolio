@@ -40,7 +40,7 @@ const Terminal = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCmdHistory([...cmdHistory, inputVal]);
+    setCmdHistory([inputVal, ...cmdHistory]);
     setInputVal("");
   };
 
@@ -61,6 +61,22 @@ const Terminal = () => {
 
   return (
     <Wrapper ref={containerRef}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="terminal-input">
+          <TermInfo />
+        </label>
+        <input
+          title="terminal-input"
+          type="text"
+          id="terminal-input"
+          autoComplete="off"
+          autoFocus
+          ref={inputRef}
+          value={inputVal}
+          onChange={handleChange}
+        />
+      </form>
+
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(cmdH, " ");
         const validCommand = _.find(commands, { cmd: commandArray[0] });
@@ -84,22 +100,6 @@ const Terminal = () => {
           </div>
         );
       })}
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="terminal-input">
-          <TermInfo />
-        </label>
-        <input
-          title="terminal-input"
-          type="text"
-          id="terminal-input"
-          autoComplete="off"
-          autoFocus
-          ref={inputRef}
-          value={inputVal}
-          onChange={handleChange}
-        />
-      </form>
     </Wrapper>
   );
 };
