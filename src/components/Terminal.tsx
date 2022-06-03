@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import Output from "./Output";
 import { Wrapper } from "./styles/Terminal.styled";
@@ -24,6 +24,9 @@ export const commands: Command = [
 ];
 
 const Terminal = () => {
+  const containerRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [inputVal, setInputVal] = useState("");
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
 
@@ -44,8 +47,19 @@ const Terminal = () => {
     setCmdHistory([]);
   };
 
+  // focus on input when terminal is clicked
+  const handleDivClick = () => {
+    inputRef.current && inputRef.current.focus();
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleDivClick);
+    return () => {
+      document.removeEventListener("click", handleDivClick);
+    };
+  }, [containerRef]);
+
   return (
-    <Wrapper>
+    <Wrapper ref={containerRef}>
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(cmdH, " ");
         const validCommand = _.find(commands, { cmd: commandArray[0] });
@@ -80,6 +94,7 @@ const Terminal = () => {
           id="terminal-input"
           autoComplete="off"
           autoFocus
+          ref={inputRef}
           value={inputVal}
           onChange={handleChange}
         />
