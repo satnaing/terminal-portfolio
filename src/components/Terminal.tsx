@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import Output from "./Output";
-import { Wrapper } from "./styles/Terminal.styled";
+import { CmdNotFound, Wrapper } from "./styles/Terminal.styled";
 import TermInfo from "./TermInfo";
 
 type Command = {
@@ -78,7 +78,7 @@ const Terminal = () => {
                 history={cmdHistory}
               />
             ) : (
-              <div>command not found: {cmdH}</div>
+              <CmdNotFound>command not found: {cmdH}</CmdNotFound>
             )}
           </div>
         );
