@@ -29,7 +29,7 @@ const Terminal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [inputVal, setInputVal] = useState("");
-  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
+  const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
