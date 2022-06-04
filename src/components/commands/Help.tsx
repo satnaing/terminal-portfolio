@@ -1,4 +1,10 @@
-import { Cmd, CmdDesc, CmdList, KeyContainer } from "../styles/Help.styled";
+import {
+  Cmd,
+  CmdDesc,
+  CmdList,
+  HelpWrapper,
+  KeyContainer,
+} from "../styles/Help.styled";
 import { commands } from "../Terminal";
 import _ from "lodash";
 
@@ -11,7 +17,7 @@ const Help = () => {
     return tabs;
   };
   return (
-    <>
+    <HelpWrapper>
       {commands.map(({ cmd, desc, tab }) => (
         <CmdList key={cmd}>
           <Cmd>{cmd}</Cmd>
@@ -24,7 +30,7 @@ const Help = () => {
         <div>Up Arrow {generateTabs(5)} =&gt; go back to previous command</div>
         <div>Ctrl + l {generateTabs(5)} =&gt; clear the terminal</div>
       </KeyContainer>
-    </>
+    </HelpWrapper>
   );
 };
 

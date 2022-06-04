@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const HelpWrapper = styled.div`
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+`;
+
 export const CmdList = styled.div`
   margin-bottom: 0.25rem;
 `;
