@@ -22,6 +22,7 @@ export const commands: Command = [
   { cmd: "history", desc: "view command history", tab: 6 },
   { cmd: "hero-section", desc: "display hero section", tab: 1 },
   { cmd: "socials", desc: "check out my social accounts", tab: 6 },
+  { cmd: "pwd", desc: "print current working directory", tab: 10 },
 ];
 
 const Terminal = () => {

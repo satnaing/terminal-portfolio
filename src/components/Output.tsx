@@ -32,6 +32,7 @@ const Output: React.FC<Props> = ({
           history: <History index={index} cmd={cmd} history={history} />,
           help: <Help />,
           "hero-section": <HeroSection />,
+          pwd: "/home/satnaing",
         }[cmd]
       }
     </OutputContainer>
