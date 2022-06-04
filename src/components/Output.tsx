@@ -5,7 +5,7 @@ import Help from "./commands/Help";
 import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
 import Projects from "./commands/Projects";
-import { OutputContainer } from "./styles/Output.styled";
+import { OutputContainer, Wrapper } from "./styles/Output.styled";
 
 type Props = {
   rerender: boolean;
@@ -29,13 +29,13 @@ const Output: React.FC<Props> = ({
       {
         {
           about: <About />,
-          whoami: <span>visitor</span>,
+          whoami: <Wrapper>visitor</Wrapper>,
           echo: <Echo arg={arg} />,
           clear: <Clear clearHistory={clearHistory} />,
           history: <History index={index} cmd={cmd} history={history} />,
           help: <Help />,
           "hero-section": <HeroSection />,
-          pwd: "/home/satnaing",
+          pwd: <Wrapper>/home/satnaing</Wrapper>,
           projects: (
             <Projects arg={arg} history={history} rerender={rerender} />
           ),
