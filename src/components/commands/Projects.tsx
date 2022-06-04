@@ -2,6 +2,7 @@ import _ from "lodash";
 import {
   ProjectContainer,
   ProjectDesc,
+  ProjectsIntro,
   ProjectTitle,
   UsageDiv,
 } from "../styles/Projects.styled";
@@ -44,7 +45,11 @@ const Projects: React.FC<{
   return arg.length > 0 ? (
     checkArg(arg[0])
   ) : (
-    <div>
+    <>
+      <ProjectsIntro>
+        “Talk is cheap. Show me the code”? I got you. <br />
+        Here are some of my projects you shouldn't misss
+      </ProjectsIntro>
       {projects.map(({ id, title, desc }) => (
         <ProjectContainer key={id}>
           <ProjectTitle>{`${id}. ${title}`}</ProjectTitle>
@@ -55,7 +60,7 @@ const Projects: React.FC<{
         Usage: projects go &#60;project-no&#62; <br />
         eg: projects go 1
       </UsageDiv>
-    </div>
+    </>
   );
 };
 
