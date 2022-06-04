@@ -31,7 +31,7 @@ const theme: Themes = {
       secondary: "#FF9D00",
       text: {
         100: "#cbd5e1",
-        200: "#94a3b8",
+        200: "#B2BDCC",
         300: "#64748b",
       },
     },
