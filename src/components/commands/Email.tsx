@@ -1,5 +1,4 @@
 import _ from "lodash";
-import { useEffect } from "react";
 import { Wrapper } from "../styles/Output.styled";
 
 const Email: React.FC<{ rerender: boolean; history: string[] }> = ({
@@ -23,4 +22,3 @@ const Email: React.FC<{ rerender: boolean; history: string[] }> = ({
 };
 
 export default Email;
-// <{ arg: string[] | string }>
