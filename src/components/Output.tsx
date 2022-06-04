@@ -4,6 +4,7 @@ import Echo from "./commands/Echo";
 import Help from "./commands/Help";
 import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
+import Projects from "./commands/Projects";
 import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
@@ -33,6 +34,7 @@ const Output: React.FC<Props> = ({
           help: <Help />,
           "hero-section": <HeroSection />,
           pwd: "/home/satnaing",
+          projects: <Projects />,
         }[cmd]
       }
     </OutputContainer>
