@@ -20,11 +20,11 @@ const Socials: React.FC<{
   }
 
   /* ===== check arg is valid ===== */
-  const checkArg = (a: string) => {
-    if (a !== "go")
+  const checkArg = (a: string[]) => {
+    if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
-        <UsageDiv>
-          Usage: socials go &#60;social-id&#62; <br />
+        <UsageDiv noMargin>
+          Usage: socials go &#60;social-no&#62; <br />
           eg: socials go 1
         </UsageDiv>
       );
@@ -32,7 +32,7 @@ const Socials: React.FC<{
   };
 
   return arg.length > 0 ? (
-    checkArg(arg[0])
+    checkArg(arg)
   ) : (
     <HelpWrapper>
       <ProjectsIntro>Here are my social links</ProjectsIntro>
