@@ -1,6 +1,7 @@
 import About from "./commands/About";
 import Clear from "./commands/Clear";
 import Echo from "./commands/Echo";
+import Email from "./commands/Email";
 import Help from "./commands/Help";
 import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
@@ -41,6 +42,7 @@ const Output: React.FC<Props> = ({
             <Projects arg={arg} history={history} rerender={rerender} />
           ),
           socials: <Socials arg={arg} history={history} rerender={rerender} />,
+          email: <Email history={history} rerender={rerender} />,
         }[cmd]
       }
     </OutputContainer>
