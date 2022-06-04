@@ -5,13 +5,38 @@ export const HeroContainer = styled.div`
   flex-wrap: wrap-reverse;
 
   div {
-    flex-basis: 50%;
+    @media (min-width: 1024px) {
+      flex-basis: 50%;
+    }
   }
 `;
 
 export const PreName = styled.pre`
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
+`;
+
+export const PreWrapper = styled.div`
+  text-align: center;
+`;
+
+export const PreNameMobile = styled.pre`
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
+
+export const PreImg = styled.pre`
+  @media (max-width: 550px) {
+    display: none;
+  }
 `;
 
 export const Seperator = styled.div`

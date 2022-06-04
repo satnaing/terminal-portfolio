@@ -2,7 +2,10 @@ import {
   Cmd,
   HeroContainer,
   Link,
+  PreImg,
   PreName,
+  PreNameMobile,
+  PreWrapper,
   Seperator,
 } from "../styles/HeroSection.styled";
 
@@ -20,6 +23,22 @@ const HeroSection = () => {
                                        /____/   
           `}
         </PreName>
+        <PreWrapper>
+          <PreNameMobile>
+            {`
+    ____     __          
+   / __/__ _/ /_         
+  _\\ \\/ _ \`/ __/         
+ /___/\\_,_/\\__/          
+    _  __     _          
+   / |/ /__ _(_)__  ___ _
+  /    / _ \`/ / _ \\/ _ \`/
+ /_/|_/\\_,_/_/_//_/\\_, / 
+                  /___/  
+ 
+          `}
+          </PreNameMobile>
+        </PreWrapper>
         <div>Welcome to my terminal portfolio. (Version 1.0.0)</div>
         <Seperator>----</Seperator>
         <div>
@@ -36,7 +55,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="illu-section">
-        <pre>
+        <PreImg>
           {`
                        ,##,,eew,
                      ,##############C
@@ -56,7 +75,7 @@ const HeroSection = () => {
             C      3 * @#######Nl      \`
            '            ^@##b     ($    !
          `}
-        </pre>
+        </PreImg>
       </div>
     </HeroContainer>
   );
