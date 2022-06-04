@@ -1,12 +1,13 @@
 import _ from "lodash";
+import { Wrapper } from "../styles/Output.styled";
 
 const Echo: React.FC<{ arg: string[] | string }> = ({ arg }) => {
   console.log("echo");
   let argStr = _.trim(_.trim(_.join(arg, " "), "'"), '"');
   return (
-    <div>
+    <Wrapper>
       <span>{argStr}</span>
-    </div>
+    </Wrapper>
   );
 };
 
