@@ -16,14 +16,7 @@ const Projects: React.FC<{
   const currentCommand = _.split(history[0], " ");
 
   /* ===== check current command is redirect ===== */
-  if (
-    arg.length > 0 && // contains arg
-    arg[0] === "go" && // first arg is 'go'
-    rerender && // is submitted
-    currentCommand[0] === "projects" && // current command starts with 'projects'
-    currentCommand.length > 1 && // current command has arg
-    _.includes([1, 2, 3, 4], parseInt(currentCommand[2])) // arg last part is one of project id
-  ) {
+  if (checkRedirect(arg, rerender, currentCommand, "projects")) {
     projects.forEach(({ id, url }) => {
       id === parseInt(arg[1]) && window.open(url, "_blank");
     });
