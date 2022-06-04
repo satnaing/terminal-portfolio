@@ -11,5 +11,10 @@ export const Wrapper = styled.div`
 `;
 
 export const CmdNotFound = styled.div`
-  padding-bottom: 1.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+`;
+
+export const Empty = styled.div`
+  margin-bottom: 0.25rem;
 `;
