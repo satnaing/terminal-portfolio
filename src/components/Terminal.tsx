@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import Output from "./Output";
-import { CmdNotFound, Wrapper } from "./styles/Terminal.styled";
 import TermInfo from "./TermInfo";
+import { CmdNotFound, Empty, Wrapper } from "./styles/Terminal.styled";
 
 type Command = {
   cmd: string;
@@ -31,9 +31,11 @@ const Terminal = () => {
 
   const [inputVal, setInputVal] = useState("");
   const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
+  const [rerender, setRerender] = useState(false);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      setRerender(false);
       setInputVal(e.target.value);
     },
     [inputVal]
@@ -43,6 +45,7 @@ const Terminal = () => {
     e.preventDefault();
     setCmdHistory([inputVal, ...cmdHistory]);
     setInputVal("");
+    setRerender(true);
   };
 
   const clearHistory = () => {
@@ -94,6 +97,7 @@ const Terminal = () => {
                 arg={_.drop(commandArray)}
                 clearHistory={clearHistory}
                 history={cmdHistory}
+                rerender={rerender}
               />
             ) : cmdH === "" ? (
               <Empty />
