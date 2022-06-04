@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.span`
   display: inline-block;
   margin-right: 0.75rem;
-  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 `;
 

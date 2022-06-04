@@ -94,6 +94,8 @@ const Terminal = () => {
                 clearHistory={clearHistory}
                 history={cmdHistory}
               />
+            ) : cmdH === "" ? (
+              <span></span>
             ) : (
               <CmdNotFound>command not found: {cmdH}</CmdNotFound>
             )}
