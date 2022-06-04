@@ -1,3 +1,4 @@
+import _ from "lodash";
 import {
   Cmd,
   CmdDesc,
@@ -6,16 +7,9 @@ import {
   KeyContainer,
 } from "../styles/Help.styled";
 import { commands } from "../Terminal";
-import _ from "lodash";
+import { generateTabs } from "../../utils/funcs";
 
 const Help = () => {
-  const generateTabs = (num: number = 0) => {
-    let tabs = "\xA0\xA0";
-    for (let i = 0; i < num; i++) {
-      tabs += "\xA0";
-    }
-    return tabs;
-  };
   return (
     <HelpWrapper>
       {commands.map(({ cmd, desc, tab }) => (
