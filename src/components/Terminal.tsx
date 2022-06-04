@@ -79,7 +79,7 @@ const Terminal = () => {
       </form>
 
       {cmdHistory.map((cmdH, index) => {
-        const commandArray = _.split(cmdH, " ");
+        const commandArray = _.split(_.trim(cmdH), " ");
         const validCommand = _.find(commands, { cmd: commandArray[0] });
         return (
           <div key={_.uniqueId(`${cmdH}_`)}>
