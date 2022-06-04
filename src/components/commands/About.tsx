@@ -1,10 +1,25 @@
+import {
+  AboutWrapper,
+  HighlightAlt,
+  HighlightSpan,
+} from "../styles/About.styled";
+
 const About = () => {
   console.log("about");
   return (
-    <div>
-      <p>Hi, my name is Sat Naing!</p>
-      <p>I'm a full-stack developer</p>
-    </div>
+    <AboutWrapper>
+      <p>
+        Hi, my name is <HighlightSpan>Sat Naing</HighlightSpan>!
+      </p>
+      <p>
+        I'm <HighlightAlt>a full-stack developer</HighlightAlt> based in Yangon,
+        Myanmar.
+      </p>
+      <p>
+        I am passionate about writing codes and <br />
+        developing web applications to solve real-life challenges.
+      </p>
+    </AboutWrapper>
   );
 };
 
