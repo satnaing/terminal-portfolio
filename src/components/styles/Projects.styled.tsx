@@ -12,7 +12,7 @@ export const ProjectsIntro = styled.div`
 `;
 
 export const ProjectTitle = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
+  font-weight: 700;
   margin-bottom: 0.25rem;
 `;
 
