@@ -5,6 +5,7 @@ import Help from "./commands/Help";
 import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
 import Projects from "./commands/Projects";
+import Socials from "./commands/Socials";
 import { OutputContainer, Wrapper } from "./styles/Output.styled";
 
 type Props = {
@@ -39,6 +40,7 @@ const Output: React.FC<Props> = ({
           projects: (
             <Projects arg={arg} history={history} rerender={rerender} />
           ),
+          socials: <Socials arg={arg} history={history} rerender={rerender} />,
         }[cmd]
       }
     </OutputContainer>
