@@ -5,6 +5,8 @@ import TermInfo from "./TermInfo";
 import {
   CmdNotFound,
   Empty,
+  Form,
+  Input,
   MobileBr,
   MobileSpan,
   Wrapper,
@@ -71,12 +73,12 @@ const Terminal = () => {
 
   return (
     <Wrapper ref={containerRef}>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="terminal-input">
           <TermInfo /> <MobileBr />
           <MobileSpan>&#62;</MobileSpan>
         </label>
-        <input
+        <Input
           title="terminal-input"
           type="text"
           id="terminal-input"
@@ -86,7 +88,7 @@ const Terminal = () => {
           value={inputVal}
           onChange={handleChange}
         />
-      </form>
+      </Form>
 
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(_.trim(cmdH), " ");

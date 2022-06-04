@@ -33,3 +33,17 @@ export const MobileBr = styled.br`
     display: none;
   }
 `;
+
+export const Form = styled.form`
+  @media (min-width: 550px) {
+    display: flex;
+  }
+`;
+
+export const Input = styled.input`
+  flex-grow: 1;
+
+  @media (max-width: 550px) {
+    min-width: 85%;
+  }
+`;
