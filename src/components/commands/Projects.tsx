@@ -1,4 +1,5 @@
 import _ from "lodash";
+import { checkRedirect } from "../../utils/funcs";
 import {
   ProjectContainer,
   ProjectDesc,
@@ -24,8 +25,8 @@ const Projects: React.FC<{
   }
 
   /* ===== check arg is valid ===== */
-  const checkArg = (a: string) => {
-    if (a !== "go")
+  const checkArg = (a: string[]) => {
+    if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
         <UsageDiv noMargin>
           Usage: projects go &#60;project-no&#62; <br />
@@ -36,7 +37,7 @@ const Projects: React.FC<{
   };
 
   return arg.length > 0 ? (
-    checkArg(arg[0])
+    checkArg(arg)
   ) : (
     <>
       <ProjectsIntro>
