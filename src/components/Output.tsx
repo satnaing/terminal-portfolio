@@ -8,9 +8,10 @@ import Projects from "./commands/Projects";
 import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
+  rerender: boolean;
   index: number;
   cmd: string;
-  arg: string[] | string;
+  arg: string[];
   history: string[];
   clearHistory: () => void;
 };
@@ -21,6 +22,7 @@ const Output: React.FC<Props> = ({
   clearHistory,
   history,
   index,
+  rerender,
 }) => {
   return (
     <OutputContainer>
@@ -34,7 +36,9 @@ const Output: React.FC<Props> = ({
           help: <Help />,
           "hero-section": <HeroSection />,
           pwd: "/home/satnaing",
-          projects: <Projects />,
+          projects: (
+            <Projects arg={arg} history={history} rerender={rerender} />
+          ),
         }[cmd]
       }
     </OutputContainer>
