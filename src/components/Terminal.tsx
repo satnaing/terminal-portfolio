@@ -2,7 +2,13 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import Output from "./Output";
 import TermInfo from "./TermInfo";
-import { CmdNotFound, Empty, Wrapper } from "./styles/Terminal.styled";
+import {
+  CmdNotFound,
+  Empty,
+  MobileBr,
+  MobileSpan,
+  Wrapper,
+} from "./styles/Terminal.styled";
 
 type Command = {
   cmd: string;
@@ -67,7 +73,8 @@ const Terminal = () => {
     <Wrapper ref={containerRef}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="terminal-input">
-          <TermInfo />
+          <TermInfo /> <MobileBr />
+          <MobileSpan>&#62;</MobileSpan>
         </label>
         <input
           title="terminal-input"
@@ -88,6 +95,8 @@ const Terminal = () => {
           <div key={_.uniqueId(`${cmdH}_`)}>
             <div>
               <TermInfo />
+              <MobileBr />
+              <MobileSpan>&#62;</MobileSpan>
               <span>{cmdH}</span>
             </div>
             {validCommand ? (

@@ -18,3 +18,18 @@ export const CmdNotFound = styled.div`
 export const Empty = styled.div`
   margin-bottom: 0.25rem;
 `;
+
+export const MobileSpan = styled.span`
+  line-height: 1.5rem;
+  margin-right: 0.75rem;
+
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
+
+export const MobileBr = styled.br`
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
