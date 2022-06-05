@@ -32,7 +32,7 @@ export const commands: Command = [
   { cmd: "hero-section", desc: "display hero section", tab: 1 },
   { cmd: "socials", desc: "check out my social accounts", tab: 6 },
   { cmd: "pwd", desc: "print current working directory", tab: 10 },
-  { cmd: "themes", desc: "check available themes", tab: 10 },
+  { cmd: "themes", desc: "check available themes", tab: 7 },
 ];
 
 const Terminal = () => {
