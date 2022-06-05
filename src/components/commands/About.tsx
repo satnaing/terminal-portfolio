@@ -3,10 +3,12 @@ import {
   HighlightAlt,
   HighlightSpan,
 } from "../styles/About.styled";
+import { UsageDiv } from "../styles/Output.styled";
 
-const About = () => {
-  console.log("about");
-  return (
+const About: React.FC<{ arg: string[] }> = ({ arg }) => {
+  return arg.length > 0 ? (
+    <UsageDiv>Usage: about</UsageDiv>
+  ) : (
     <AboutWrapper>
       <p>
         Hi, my name is <HighlightSpan>Sat Naing</HighlightSpan>!

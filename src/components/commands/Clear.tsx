@@ -1,11 +1,14 @@
 import { useEffect } from "react";
+import { UsageDiv } from "../styles/Output.styled";
 
-const Clear: React.FC<{ clearHistory: () => void }> = ({ clearHistory }) => {
-  console.log("clear");
+const Clear: React.FC<{ arg: string[]; clearHistory: () => void }> = ({
+  arg,
+  clearHistory,
+}) => {
   useEffect(() => {
-    clearHistory();
+    if (arg.length < 1) clearHistory();
   }, []);
-  return <></>;
+  return arg.length > 0 ? <UsageDiv>Usage: clear</UsageDiv> : <></>;
 };
 
 export default Clear;

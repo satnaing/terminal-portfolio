@@ -8,9 +8,12 @@ import {
   PreWrapper,
   Seperator,
 } from "../styles/HeroSection.styled";
+import { UsageDiv } from "../styles/Output.styled";
 
-const HeroSection = () => {
-  return (
+const HeroSection: React.FC<{ arg: string[] }> = ({ arg }) => {
+  return arg.length > 0 ? (
+    <UsageDiv>Usage: about</UsageDiv>
+  ) : (
     <HeroContainer>
       <div className="info-section">
         <PreName>

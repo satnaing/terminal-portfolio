@@ -30,19 +30,19 @@ const Output: React.FC<Props> = ({
     <OutputContainer>
       {
         {
-          about: <About />,
+          about: <About arg={arg} />,
           whoami: <Wrapper>visitor</Wrapper>,
           echo: <Echo arg={arg} />,
-          clear: <Clear clearHistory={clearHistory} />,
-          history: <History index={index} cmd={cmd} history={history} />,
+          clear: <Clear arg={arg} clearHistory={clearHistory} />,
+          history: <History arg={arg} index={index} history={history} />,
           help: <Help arg={arg} />,
-          "hero-section": <HeroSection />,
+          "hero-section": <HeroSection arg={arg} />,
           pwd: <Wrapper>/home/satnaing</Wrapper>,
           projects: (
             <Projects arg={arg} history={history} rerender={rerender} />
           ),
           socials: <Socials arg={arg} history={history} rerender={rerender} />,
-          email: <Email history={history} rerender={rerender} />,
+          email: <Email arg={arg} history={history} rerender={rerender} />,
         }[cmd]
       }
     </OutputContainer>
