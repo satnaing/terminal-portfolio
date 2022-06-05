@@ -33,6 +33,7 @@ export const commands: Command = [
   { cmd: "socials", desc: "check out my social accounts", tab: 6 },
   { cmd: "pwd", desc: "print current working directory", tab: 10 },
   { cmd: "themes", desc: "check available themes", tab: 7 },
+  { cmd: "gui", desc: "go to my portfolio in GUI", tab: 10 },
 ];
 
 const Terminal = () => {
