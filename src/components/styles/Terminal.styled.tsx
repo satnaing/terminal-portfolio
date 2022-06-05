@@ -47,3 +47,7 @@ export const Input = styled.input`
     min-width: 85%;
   }
 `;
+
+export const Hints = styled.span`
+  margin-right: 0.875rem;
+`;
