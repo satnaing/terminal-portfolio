@@ -8,9 +8,12 @@ import {
 } from "../styles/Help.styled";
 import { commands } from "../Terminal";
 import { generateTabs } from "../../utils/funcs";
+import { UsageDiv } from "../styles/Output.styled";
 
-const Help = () => {
-  return (
+const Help: React.FC<{ arg: string[] }> = ({ arg }) => {
+  return arg.length > 0 ? (
+    <UsageDiv>Usage: help</UsageDiv>
+  ) : (
     <HelpWrapper>
       {commands.map(({ cmd, desc, tab }) => (
         <CmdList key={cmd}>
