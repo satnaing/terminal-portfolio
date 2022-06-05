@@ -6,6 +6,7 @@ import {
   CmdNotFound,
   Empty,
   Form,
+  Hints,
   Input,
   MobileBr,
   MobileSpan,
@@ -38,7 +39,8 @@ const Terminal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [inputVal, setInputVal] = useState("");
-  const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
+  // const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
+  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
   const [rerender, setRerender] = useState(false);
 
   const handleChange = useCallback(
@@ -54,6 +56,8 @@ const Terminal = () => {
     setCmdHistory([inputVal, ...cmdHistory]);
     setInputVal("");
     setRerender(true);
+    setHints([]);
+    setPointer(0);
   };
 
   const clearHistory = () => {
@@ -71,8 +75,71 @@ const Terminal = () => {
     };
   }, [containerRef]);
 
+  // Keyboard Press
+  const [hints, setHints] = useState<string[]>([]);
+  const [pointer, setPointer] = useState(0);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const ctrlI = e.ctrlKey && e.key.toLowerCase() === "i";
+    const ctrlL = e.ctrlKey && e.key.toLowerCase() === "l";
+
+    // if Tab or Ctrl + I
+    if (e.key === "Tab" || ctrlI) {
+      e.preventDefault();
+      let hintsCmds: string[] = [];
+      commands.forEach(({ cmd }) => {
+        if (_.startsWith(cmd, inputVal)) {
+          hintsCmds = [...hintsCmds, cmd];
+        }
+      });
+      if (hintsCmds.length > 1) {
+        setHints(hintsCmds);
+      } else if (hintsCmds.length === 1) {
+        setInputVal(hintsCmds[0]);
+        setHints([]);
+      }
+    }
+
+    // if Ctrl + L
+    if (ctrlL) {
+      clearHistory();
+    }
+
+    // Go previous cmd
+    if (e.key === "ArrowUp") {
+      if (pointer < cmdHistory.length) {
+        setInputVal(cmdHistory[pointer]);
+        pointer + 1 !== cmdHistory.length &&
+          setPointer((prevState) => prevState + 1);
+        pointer + 1 !== cmdHistory.length && inputRef?.current?.blur();
+      }
+    }
+
+    // Go next cmd
+    if (e.key === "ArrowDown") {
+      if (pointer > 0) {
+        setInputVal(cmdHistory[pointer - 1]);
+        pointer - 1 !== 0 && setPointer((prevState) => prevState - 1);
+        pointer - 1 !== 0 && inputRef?.current?.blur();
+      }
+    }
+  };
+  // For caret position at the end
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      inputRef?.current?.focus();
+    }, 1);
+    return () => clearTimeout(timer);
+  }, [inputRef, inputVal, pointer]);
+
   return (
     <Wrapper ref={containerRef}>
+      {hints.length > 1 && (
+        <div>
+          {hints.map((hCmd) => (
+            <Hints key={hCmd}>{hCmd}</Hints>
+          ))}
+        </div>
+      )}
       <Form onSubmit={handleSubmit}>
         <label htmlFor="terminal-input">
           <TermInfo /> <MobileBr />
@@ -83,9 +150,11 @@ const Terminal = () => {
           type="text"
           id="terminal-input"
           autoComplete="off"
+          spellCheck="false"
           autoFocus
           ref={inputRef}
           value={inputVal}
+          onKeyDown={handleKeyDown}
           onChange={handleChange}
         />
       </Form>
