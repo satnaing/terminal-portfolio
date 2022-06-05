@@ -40,3 +40,31 @@ export const checkRedirect = (
     return false;
   }
 };
+
+/**
+ * Check current render makes redirect for theme
+ * @param {string[]} arg - arg of the command
+ * @param {boolean} rerender - is submitted or not
+ * @param {string[]} currentCommand - current submitted command
+ * @param {string[]} themes - the command of the function
+ * @returns {boolean} redirect - true | false
+ */
+export const checkThemeRedirect = (
+  arg: string[],
+  rerender: boolean,
+  currentCommand: string[],
+  themes: string[]
+): boolean => {
+  if (
+    arg.length > 0 && // contains arg
+    arg[0] === "set" && // first arg is 'set'
+    rerender && // is submitted
+    currentCommand[0] === "themes" && // current command starts with ('themes')
+    currentCommand.length > 1 && // current command has arg
+    _.includes(themes, currentCommand[2]) // arg last part is one of id
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
