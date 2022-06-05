@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "./components/styles/themes";
 import { useTheme } from "./hooks/useTheme";
 import GlobalStyle from "./components/styles/GlobalStyle";
 import Terminal from "./components/Terminal";
+
+export const themeContext = createContext<
+  ((switchTheme: Theme) => void) | null
+>(null);
 
 function App() {
   // themes
@@ -24,8 +28,9 @@ function App() {
       {themeLoaded && (
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyle />
-          {/* <button onClick={() => themeSwitcher(themes.light)}>Click Me</button> */}
-          <Terminal />
+          <themeContext.Provider value={themeSwitcher}>
+            <Terminal />
+          </themeContext.Provider>
         </ThemeProvider>
       )}
     </>
