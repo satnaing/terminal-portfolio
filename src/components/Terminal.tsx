@@ -63,6 +63,7 @@ const Terminal = () => {
 
   const clearHistory = () => {
     setCmdHistory([]);
+    setHints([]);
   };
 
   // focus on input when terminal is clicked
@@ -80,6 +81,7 @@ const Terminal = () => {
   const [hints, setHints] = useState<string[]>([]);
   const [pointer, setPointer] = useState(0);
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    setRerender(false);
     const ctrlI = e.ctrlKey && e.key.toLowerCase() === "i";
     const ctrlL = e.ctrlKey && e.key.toLowerCase() === "l";
 
