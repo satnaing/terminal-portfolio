@@ -35,7 +35,7 @@ const Output: React.FC<Props> = ({
           echo: <Echo arg={arg} />,
           clear: <Clear clearHistory={clearHistory} />,
           history: <History index={index} cmd={cmd} history={history} />,
-          help: <Help />,
+          help: <Help arg={arg} />,
           "hero-section": <HeroSection />,
           pwd: <Wrapper>/home/satnaing</Wrapper>,
           projects: (

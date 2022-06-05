@@ -1,7 +1,8 @@
 import _ from "lodash";
-import { ProjectsIntro, UsageDiv } from "../styles/Projects.styled";
+import { ProjectsIntro } from "../styles/Projects.styled";
 import { Cmd, CmdDesc, CmdList, HelpWrapper } from "../styles/Help.styled";
 import { checkRedirect, generateTabs } from "../../utils/funcs";
+import { UsageDiv } from "../styles/Output.styled";
 
 const Socials: React.FC<{
   arg: string[];
@@ -23,7 +24,7 @@ const Socials: React.FC<{
   const checkArg = (a: string[]) => {
     if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
-        <UsageDiv noMargin>
+        <UsageDiv>
           Usage: socials go &#60;social-no&#62; <br />
           eg: socials go 1
         </UsageDiv>
@@ -43,7 +44,7 @@ const Socials: React.FC<{
           <CmdDesc>- {url}</CmdDesc>
         </CmdList>
       ))}
-      <UsageDiv>
+      <UsageDiv marginY>
         Usage: socials go &#60;social-id&#62; <br />
         eg: socials go 1
       </UsageDiv>

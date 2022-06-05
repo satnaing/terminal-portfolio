@@ -22,9 +22,3 @@ export const ProjectDesc = styled.div`
   line-height: 1.5rem;
   max-width: 500px;
 `;
-
-export const UsageDiv = styled.div<{ noMargin?: boolean }>`
-  margin-top: ${(props) => (props.noMargin ? "0.25rem" : "0.75rem")};
-  margin-bottom: 0.75rem;
-  line-height: 1.5rem;
-`;

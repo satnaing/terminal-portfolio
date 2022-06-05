@@ -1,11 +1,11 @@
 import _ from "lodash";
 import { checkRedirect } from "../../utils/funcs";
+import { UsageDiv } from "../styles/Output.styled";
 import {
   ProjectContainer,
   ProjectDesc,
   ProjectsIntro,
   ProjectTitle,
-  UsageDiv,
 } from "../styles/Projects.styled";
 
 const Projects: React.FC<{
@@ -28,7 +28,7 @@ const Projects: React.FC<{
   const checkArg = (a: string[]) => {
     if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
-        <UsageDiv noMargin>
+        <UsageDiv>
           Usage: projects go &#60;project-no&#62; <br />
           eg: projects go 1
         </UsageDiv>
@@ -50,7 +50,7 @@ const Projects: React.FC<{
           <ProjectDesc>{desc}</ProjectDesc>
         </ProjectContainer>
       ))}
-      <UsageDiv>
+      <UsageDiv marginY>
         Usage: projects go &#60;project-no&#62; <br />
         eg: projects go 1
       </UsageDiv>
