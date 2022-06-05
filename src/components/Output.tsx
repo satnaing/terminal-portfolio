@@ -8,7 +8,8 @@ import HeroSection from "./commands/HeroSection";
 import History from "./commands/History";
 import Projects from "./commands/Projects";
 import Socials from "./commands/Socials";
-import { OutputContainer, Wrapper } from "./styles/Output.styled";
+import Themes from "./commands/Themes";
+import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
   rerender: boolean;
@@ -52,6 +53,7 @@ const Output: React.FC<Props> = ({
           ),
           socials: <Socials arg={arg} history={history} rerender={rerender} />,
           email: <Email arg={arg} history={history} rerender={rerender} />,
+          themes: <Themes arg={arg} history={history} rerender={rerender} />,
         }[cmd]
       }
     </OutputContainer>
