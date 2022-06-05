@@ -41,8 +41,8 @@ const Terminal = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [inputVal, setInputVal] = useState("");
-  // const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
-  const [cmdHistory, setCmdHistory] = useState<string[]>([]);
+  const [cmdHistory, setCmdHistory] = useState<string[]>(["hero-section"]);
+  // const [cmdHistory, setCmdHistory] = useState<string[]>([]);
   const [rerender, setRerender] = useState(false);
 
   const handleChange = useCallback(
