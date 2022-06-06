@@ -9,7 +9,7 @@ const Email: React.FC = () => {
   /* ===== get current command ===== */
   const currentCommand = _.split(history[0], " ");
 
-  if (rerender && currentCommand[0] === "email" && arg.length < 1) {
+  if (rerender && currentCommand[0] === "email" && currentCommand.length <= 1) {
     // location.href = "mailto:" + "satnaing.dev@gmail.com";
     window.open("mailto:" + "satnaing.dev@gmail.com", "_self");
   }
