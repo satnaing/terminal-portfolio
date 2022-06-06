@@ -156,6 +156,7 @@ const Terminal = () => {
           autoComplete="off"
           spellCheck="false"
           autoFocus
+          autoCapitalize="off"
           ref={inputRef}
           value={inputVal}
           onKeyDown={handleKeyDown}
