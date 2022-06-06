@@ -16,11 +16,20 @@ export const Cmd = styled.span`
 export const CmdDesc = styled.span`
   color: ${({ theme }) => theme.colors.text[200]};
   margin-bottom: 0.75rem;
+
+  @media (max-width: 550px) {
+    display: block;
+  }
 `;
 
 export const KeyContainer = styled.div`
   font-size: 0.875rem;
   margin-top: 1rem;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
+
   div {
     margin-top: 0.25rem;
   }
