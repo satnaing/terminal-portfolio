@@ -24,7 +24,8 @@ My perfolio website in terminal version developed with React and TypeScript. In 
 ## Lighthouse Score
 
 <p align="center">
-<img width="710" alt="Sat Naing Terminal Lighthouse Score" src="https://user-images.githubusercontent.com/53733092/172168920-d05dd889-802e-48f3-8266-75e0357f561e.png">
+<img width="710" alt="Sat Naing Terminal Lighthouse Score" src="public/lighthouse-result.svg">
+<!-- <img width="710" alt="Sat Naing Terminal Lighthouse Score" src="https://user-images.githubusercontent.com/53733092/172168920-d05dd889-802e-48f3-8266-75e0357f561e.png"> -->
 </p>
 
 ## Running Locally
