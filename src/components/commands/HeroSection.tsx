@@ -48,9 +48,9 @@ const HeroSection: React.FC = () => {
         <div>Welcome to my terminal portfolio. (Version 1.0.0)</div>
         <Seperator>----</Seperator>
         <div>
-          This project's repo link can be seen{" "}
+          This project's source code can be seen in this project's{" "}
           <Link href="https://github.com/satnaing/terminal-portfolio">
-            here
+            GitHub repo
           </Link>
           .
         </div>
