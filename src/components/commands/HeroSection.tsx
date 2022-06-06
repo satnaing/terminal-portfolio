@@ -53,8 +53,7 @@ const HeroSection: React.FC<{ arg: string[] }> = ({ arg }) => {
         </div>
         <Seperator>----</Seperator>
         <div>
-          For a list of available commands, type `<Cmd>help</Cmd>` or `
-          <Cmd>?</Cmd>`
+          For a list of available commands, type `<Cmd>help</Cmd>`.
         </div>
       </div>
       <div className="illu-section">
