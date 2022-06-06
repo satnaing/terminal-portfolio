@@ -84,9 +84,9 @@ const theme: Themes = {
       },
     },
   },
-  "hacker-green": {
+  "green-goblin": {
     id: "T_005",
-    name: "hacker-green",
+    name: "green-goblin",
     colors: {
       body: "#000000",
       scrollHandle: "#2E2E2E",
