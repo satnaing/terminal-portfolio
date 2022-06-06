@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Cmd,
   HeroContainer,
@@ -9,8 +10,10 @@ import {
   Seperator,
 } from "../styles/HeroSection.styled";
 import { UsageDiv } from "../styles/Output.styled";
+import { termContext } from "../Terminal";
 
-const HeroSection: React.FC<{ arg: string[] }> = ({ arg }) => {
+const HeroSection: React.FC = () => {
+  const { arg } = useContext(termContext);
   return arg.length > 0 ? (
     <UsageDiv>Usage: about</UsageDiv>
   ) : (

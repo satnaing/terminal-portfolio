@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import _ from "lodash";
 import {
   Cmd,
@@ -6,11 +7,12 @@ import {
   HelpWrapper,
   KeyContainer,
 } from "../styles/Help.styled";
-import { commands } from "../Terminal";
+import { commands, termContext } from "../Terminal";
 import { generateTabs } from "../../utils/funcs";
 import { UsageDiv } from "../styles/Output.styled";
 
-const Help: React.FC<{ arg: string[] }> = ({ arg }) => {
+const Help: React.FC = () => {
+  const { arg } = useContext(termContext);
   return arg.length > 0 ? (
     <UsageDiv>Usage: help</UsageDiv>
   ) : (

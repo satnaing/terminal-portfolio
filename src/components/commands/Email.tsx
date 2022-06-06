@@ -1,11 +1,11 @@
+import { useContext } from "react";
 import _ from "lodash";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
+import { termContext } from "../Terminal";
 
-const Email: React.FC<{
-  arg: string[];
-  rerender: boolean;
-  history: string[];
-}> = ({ rerender, history, arg }) => {
+const Email: React.FC = () => {
+  const { arg, history, rerender } = useContext(termContext);
+
   /* ===== get current command ===== */
   const currentCommand = _.split(history[0], " ");
 

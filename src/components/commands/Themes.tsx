@@ -4,15 +4,14 @@ import { themeContext } from "../../App";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
 import { ThemeSpan } from "../styles/Themes.styled";
 import { checkThemeRedirect } from "../../utils/funcs";
+import { termContext } from "../Terminal";
 import theme from "../styles/themes";
 
 const myThemes = _.keys(theme);
 
-const Themes: React.FC<{
-  arg: string[];
-  history: string[];
-  rerender: boolean;
-}> = ({ arg, history, rerender }) => {
+const Themes: React.FC = () => {
+  const { arg, history, rerender } = useContext(termContext);
+
   const themeSwitcher = useContext(themeContext);
   /* ===== get current command ===== */
   const currentCommand = _.split(history[0], " ");

@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
+import { termContext } from "../Terminal";
 
 const GeneralOutput: React.FC<{
   children: string;
-  arg: string[];
   cmd: string;
-}> = ({ arg, cmd, children }) => {
+}> = ({ cmd, children }) => {
+  const { arg } = useContext(termContext);
   return arg.length > 0 ? (
     <UsageDiv>Usage: {cmd}</UsageDiv>
   ) : (

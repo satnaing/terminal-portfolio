@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { EduIntro, EduList } from "../styles/EduBg.styled";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
+import { termContext } from "../Terminal";
 
-const EduBg: React.FC<{ arg: string[] }> = ({ arg }) => {
+const EduBg: React.FC = () => {
+  const { arg } = useContext(termContext);
+
   return arg.length > 0 ? (
     <UsageDiv>Usage: edu-bg</UsageDiv>
   ) : (

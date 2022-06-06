@@ -14,50 +14,28 @@ import Themes from "./commands/Themes";
 import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
-  rerender: boolean;
-  index: number;
   cmd: string;
-  arg: string[];
-  history: string[];
-  clearHistory: () => void;
 };
 
-const Output: React.FC<Props> = ({
-  cmd,
-  arg,
-  clearHistory,
-  history,
-  index,
-  rerender,
-}) => {
+const Output: React.FC<Props> = ({ cmd }) => {
   return (
     <OutputContainer>
       {
         {
-          about: <About arg={arg} />,
-          whoami: (
-            <GeneralOutput arg={arg} cmd="whoami">
-              visitor
-            </GeneralOutput>
-          ),
-          echo: <Echo arg={arg} />,
-          clear: <Clear arg={arg} clearHistory={clearHistory} />,
-          history: <History arg={arg} index={index} history={history} />,
-          help: <Help arg={arg} />,
-          "hero-section": <HeroSection arg={arg} />,
-          pwd: (
-            <GeneralOutput arg={arg} cmd="pwd">
-              /home/satnaing
-            </GeneralOutput>
-          ),
-          projects: (
-            <Projects arg={arg} history={history} rerender={rerender} />
-          ),
-          socials: <Socials arg={arg} history={history} rerender={rerender} />,
-          email: <Email arg={arg} history={history} rerender={rerender} />,
-          themes: <Themes arg={arg} history={history} rerender={rerender} />,
-          gui: <Gui arg={arg} history={history} rerender={rerender} />,
-          "edu-bg": <EduBg arg={arg} />,
+          about: <About />,
+          whoami: <GeneralOutput cmd="whoami">visitor</GeneralOutput>,
+          echo: <Echo />,
+          clear: <Clear />,
+          history: <History />,
+          help: <Help />,
+          "hero-section": <HeroSection />,
+          pwd: <GeneralOutput cmd="pwd">/home/satnaing</GeneralOutput>,
+          projects: <Projects />,
+          socials: <Socials />,
+          email: <Email />,
+          themes: <Themes />,
+          gui: <Gui />,
+          "edu-bg": <EduBg />,
         }[cmd]
       }
     </OutputContainer>
