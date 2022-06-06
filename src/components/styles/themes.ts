@@ -52,6 +52,54 @@ const theme: Themes = {
       },
     },
   },
+  "blue-matrix": {
+    id: "T_003",
+    name: "blue-matrix",
+    colors: {
+      body: "#101116",
+      scrollHandle: "#424242",
+      scrollHandleHover: "#616161",
+      primary: "#00ff9c",
+      secondary: "#60fdff",
+      text: {
+        100: "#ffffff",
+        200: "#c7c7c7",
+        300: "#76ff9f",
+      },
+    },
+  },
+  espresso: {
+    id: "T_004",
+    name: "espresso",
+    colors: {
+      body: "#323232",
+      scrollHandle: "#5b5b5b",
+      scrollHandleHover: "#393939",
+      primary: "#E1E48B",
+      secondary: "#A5C260",
+      text: {
+        100: "#F7F7F7",
+        200: "#EEEEEE",
+        300: "#5b5b5b",
+      },
+    },
+  },
+  "hacker-green": {
+    id: "T_005",
+    name: "hacker-green",
+    colors: {
+      body: "#000000",
+      scrollHandle: "#2E2E2E",
+      scrollHandleHover: "#414141",
+      primary: "#E5E500",
+      secondary: "#04A500",
+      text: {
+        100: "#01FF00",
+        200: "#04A5B2",
+        300: "#E50101",
+      },
+    },
+  },
 };
 
 export default theme;
