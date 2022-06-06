@@ -18,11 +18,12 @@ import {
   MobileSpan,
   Wrapper,
 } from "./styles/Terminal.styled";
+import { argTab } from "../utils/funcs";
 
 type Command = {
   cmd: string;
-  desc?: string;
-  tab?: number;
+  desc: string;
+  tab: number;
 }[];
 
 export const commands: Command = [
@@ -116,10 +117,23 @@ const Terminal = () => {
           hintsCmds = [...hintsCmds, cmd];
         }
       });
+
+      const returnedHints = argTab(inputVal, setInputVal, setHints, hintsCmds);
+      hintsCmds = returnedHints ? [...hintsCmds, ...returnedHints] : hintsCmds;
+
+      // if there are many command to autocomplete
       if (hintsCmds.length > 1) {
         setHints(hintsCmds);
-      } else if (hintsCmds.length === 1) {
-        setInputVal(hintsCmds[0]);
+      }
+      // if only one command to autocomplete
+      else if (hintsCmds.length === 1) {
+        const currentCmd = _.split(inputVal, " ");
+        setInputVal(
+          currentCmd.length !== 1
+            ? `${currentCmd[0]} ${currentCmd[1]} ${hintsCmds[0]}`
+            : hintsCmds[0]
+        );
+
         setHints([]);
       }
     }
