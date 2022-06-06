@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import _ from "lodash";
 import { themeContext } from "../../App";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
-import { ThemeSpan } from "../styles/Themes.styled";
+import { ThemeSpan, ThemesWrapper } from "../styles/Themes.styled";
 import { checkThemeRedirect } from "../../utils/funcs";
 import { termContext } from "../Terminal";
 import theme from "../styles/themes";
@@ -39,9 +39,11 @@ const Themes: React.FC = () => {
     checkArg(arg)
   ) : (
     <Wrapper>
-      {myThemes.map((myTheme) => (
-        <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>
-      ))}
+      <ThemesWrapper>
+        {myThemes.map((myTheme) => (
+          <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>
+        ))}
+      </ThemesWrapper>
       <UsageDiv marginY>
         Usage: themes set &#60;theme-name&#62; <br />
         eg: themes set dark
