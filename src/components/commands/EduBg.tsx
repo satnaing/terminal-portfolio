@@ -8,7 +8,7 @@ const EduBg: React.FC<{ arg: string[] }> = ({ arg }) => {
     <Wrapper>
       <EduIntro>Here is my education background!</EduIntro>
       {eduBg.map(({ title, desc }) => (
-        <EduList>
+        <EduList key={title}>
           <div className="title">{title}</div>
           <div className="desc">{desc}</div>
         </EduList>
