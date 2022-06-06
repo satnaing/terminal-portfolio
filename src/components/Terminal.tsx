@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import _ from "lodash";
 import Output from "./Output";
 import TermInfo from "./TermInfo";
@@ -35,6 +41,21 @@ export const commands: Command = [
   { cmd: "themes", desc: "check available themes", tab: 7 },
   { cmd: "whoami", desc: "about current user", tab: 7 },
 ];
+
+type Term = {
+  arg: string[];
+  history: string[];
+  rerender: boolean;
+  index: number;
+  clearHistory?: () => void;
+};
+
+export const termContext = createContext<Term>({
+  arg: [],
+  history: [],
+  rerender: false,
+  index: 0,
+});
 
 const Terminal = () => {
   const containerRef = useRef(null);
@@ -167,6 +188,13 @@ const Terminal = () => {
       {cmdHistory.map((cmdH, index) => {
         const commandArray = _.split(_.trim(cmdH), " ");
         const validCommand = _.find(commands, { cmd: commandArray[0] });
+        const contextValue = {
+          arg: _.drop(commandArray),
+          history: cmdHistory,
+          rerender,
+          index,
+          clearHistory,
+        };
         return (
           <div key={_.uniqueId(`${cmdH}_`)}>
             <div>
@@ -176,14 +204,9 @@ const Terminal = () => {
               <span>{cmdH}</span>
             </div>
             {validCommand ? (
-              <Output
-                index={index}
-                cmd={commandArray[0]}
-                arg={_.drop(commandArray)}
-                clearHistory={clearHistory}
-                history={cmdHistory}
-                rerender={rerender}
-              />
+              <termContext.Provider value={contextValue}>
+                <Output cmd={commandArray[0]} />
+              </termContext.Provider>
             ) : cmdH === "" ? (
               <Empty />
             ) : (
