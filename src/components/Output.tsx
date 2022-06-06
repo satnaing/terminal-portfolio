@@ -1,6 +1,7 @@
 import About from "./commands/About";
 import Clear from "./commands/Clear";
 import Echo from "./commands/Echo";
+import EduBg from "./commands/EduBg";
 import Email from "./commands/Email";
 import GeneralOutput from "./commands/GeneralOutput";
 import Gui from "./commands/Gui";
@@ -56,6 +57,7 @@ const Output: React.FC<Props> = ({
           email: <Email arg={arg} history={history} rerender={rerender} />,
           themes: <Themes arg={arg} history={history} rerender={rerender} />,
           gui: <Gui arg={arg} history={history} rerender={rerender} />,
+          "edu-bg": <EduBg arg={arg} />,
         }[cmd]
       }
     </OutputContainer>
