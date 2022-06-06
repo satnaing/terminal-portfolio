@@ -8,12 +8,12 @@ export const useTheme = () => {
   const [themeLoaded, setThemeLoaded] = useState(false);
 
   const setMode = (mode: Theme) => {
-    setToLS("theme", mode.name);
+    setToLS("tsn-theme", mode.name);
     setTheme(mode);
   };
 
   useEffect(() => {
-    const localThemeName = getFromLS("theme");
+    const localThemeName = getFromLS("tsn-theme");
     localThemeName ? setTheme(themes[localThemeName]) : setTheme(themes.dark);
     setThemeLoaded(true);
   }, []);
