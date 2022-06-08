@@ -100,6 +100,22 @@ const theme: Themes = {
       },
     },
   },
+  ubuntu: {
+    id: "T_006",
+    name: "ubuntu",
+    colors: {
+      body: "#2D0922",
+      scrollHandle: "#F47845",
+      scrollHandleHover: "#E65F31",
+      primary: "#80D932",
+      secondary: "#80D932",
+      text: {
+        100: "#FFFFFF",
+        200: "#E1E9CC",
+        300: "#CDCDCD",
+      },
+    },
+  },
 };
 
 export default theme;
