@@ -5,6 +5,8 @@
 
 My perfolio website in terminal version developed with React and TypeScript. In this project, styled-components library is used for styling. Multiple themes supported. Keyboard shortcuts can be used for some functionalities.
 
+Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react
+
 ## Features
 
 - Responsive Design 📱💻
