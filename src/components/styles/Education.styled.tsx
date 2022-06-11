@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "./themes";
 
 export const EduIntro = styled.div`
   margin-bottom: 0.75rem;

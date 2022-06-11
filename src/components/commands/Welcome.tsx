@@ -8,11 +8,11 @@ import {
   PreNameMobile,
   PreWrapper,
   Seperator,
-} from "../styles/HeroSection.styled";
+} from "../styles/Welcome.styled";
 import { UsageDiv } from "../styles/Output.styled";
 import { termContext } from "../Terminal";
 
-const HeroSection: React.FC = () => {
+const Welcome: React.FC = () => {
   const { arg } = useContext(termContext);
   return arg.length > 0 ? (
     <UsageDiv>Usage: about</UsageDiv>
@@ -86,4 +86,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-export default HeroSection;
+export default Welcome;

@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { EduIntro, EduList } from "../styles/EduBg.styled";
+import { EduIntro, EduList } from "../styles/Education.styled";
 import { UsageDiv, Wrapper } from "../styles/Output.styled";
 import { termContext } from "../Terminal";
 
-const EduBg: React.FC = () => {
+const Education: React.FC = () => {
   const { arg } = useContext(termContext);
 
   return arg.length > 0 ? (
@@ -36,4 +36,4 @@ const eduBg = [
   },
 ];
 
-export default EduBg;
+export default Education;
