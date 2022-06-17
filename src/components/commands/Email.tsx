@@ -10,15 +10,15 @@ const Email: React.FC = () => {
   const currentCommand = _.split(history[0], " ");
 
   if (rerender && currentCommand[0] === "email" && currentCommand.length <= 1) {
-    // location.href = "mailto:" + "satnaing.dev@gmail.com";
-    window.open("mailto:" + "satnaing.dev@gmail.com", "_self");
+    // location.href = "mailto:" + "contact@satnaing.dev";
+    window.open("mailto:" + "contact@satnaing.dev", "_self");
   }
 
   return arg.length > 0 ? (
     <UsageDiv>Usage: email</UsageDiv>
   ) : (
     <Wrapper>
-      <span>satnaing.dev@gmail.com</span>
+      <span>contact@satnaing.dev</span>
     </Wrapper>
   );
 };
