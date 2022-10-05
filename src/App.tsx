@@ -18,6 +18,20 @@ function App() {
     setSelectedTheme(theme);
   }, [themeLoaded]);
 
+  useEffect(() => {
+    if (document) {
+      document!
+        .querySelector('meta[name="theme-color"]')!
+        .setAttribute("content", theme.colors.body);
+      document!
+        .querySelector('meta[name="msapplication-TileColor"]')!
+        .setAttribute("content", theme.colors.body);
+      document!
+        .querySelector('link[rel="mask-icon"]')!
+        .setAttribute("color", theme.colors.body);
+    }
+  }, [selectedTheme]);
+
   const themeSwitcher = (switchTheme: Theme) => {
     setSelectedTheme(switchTheme);
     setMode(switchTheme);
