@@ -18,6 +18,7 @@ function App() {
     setSelectedTheme(theme);
   }, [themeLoaded]);
 
+  // Update meta tag colors when switching themes
   useEffect(() => {
     if (document) {
       document!
