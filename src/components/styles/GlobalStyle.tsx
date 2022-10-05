@@ -59,6 +59,15 @@ const GlobalStyle = createGlobalStyle<{ theme: Theme }>`
   input[type=text]:focus-visible {
     outline: none;
   }
+
+  .sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 `;
 
 export default GlobalStyle;
