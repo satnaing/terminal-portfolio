@@ -1,9 +1,12 @@
-# Sat Naing Terminal Portfolio
+# Terminal Portfolio Website by Sat Naing
 
-![Sat Naing's Terminal](https://user-images.githubusercontent.com/53733092/172165697-a69d61dd-98f5-4237-910c-5915b5b8952b.png)
+![Terminal Portfolio Website by Sat Naing](https://user-images.githubusercontent.com/53733092/194220661-e2ff8b4c-f64a-4b64-a836-c52fae6bbcda.png)
+
+<!-- ![Sat Naing's Terminal](https://user-images.githubusercontent.com/53733092/172165697-a69d61dd-98f5-4237-910c-5915b5b8952b.png) -->
+
 ![ts](https://badgen.net/badge/Built%20With/TypeScript/blue) [![Netlify Status](https://api.netlify.com/api/v1/badges/81fdb91d-c06f-46c2-b18d-dfc6f090f281/deploy-status)](https://app.netlify.com/sites/terminal-sn/deploys)
 
-My perfolio website in terminal version developed with React and TypeScript. In this project, styled-components library is used for styling. Multiple themes supported. Keyboard shortcuts can be used for some functionalities.
+My perfolio website in terminal version developed with React, TypeScript and Styled-Components. Multiple themes supported and keyboard shortcuts can be used for some functionalities.
 
 Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react
 
@@ -14,6 +17,7 @@ Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfoli
 - Autocomplete feature ✨ (TAB | Ctrl + i)
 - Go previous and next command ⬆️⬇️
 - View command history 📖
+- PWA and Offline Support 🔥
 
 ## Tech Stack
 
@@ -22,6 +26,11 @@ Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfoli
 **UI/UX** - [Figma](https://figma.com/)  
 **State Management** - [ContextAPI](https://reactjs.org/docs/context.html)  
 **Deployment** - [Netlify](https://app.netlify.com/)
+
+## Multiple Themes
+
+Currently, this website supports 6 themes. Type `themes` in the terminal for more info.
+![terminal-portfolio-themes](https://user-images.githubusercontent.com/53733092/194221801-94f1c28b-4865-4b7f-a73e-d41132519bea.png)
 
 ## Lighthouse Score
 
