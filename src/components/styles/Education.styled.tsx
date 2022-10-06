@@ -13,6 +13,6 @@ export const EduList = styled.div`
   }
 
   .desc {
-    color: ${({ theme }) => theme.colors.text[200]};
+    color: ${({ theme }) => theme.colors?.text[200]};
   }
 `;

@@ -1,6 +1,5 @@
 import { createGlobalStyle, DefaultTheme } from "styled-components";
 import { normalize } from "styled-normalize";
-import { Theme } from "./themes";
 
 const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
   ${normalize}
@@ -29,8 +28,8 @@ const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
   body {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
-    background-color: ${({ theme }) => theme.colors.body};
-    color: ${({ theme }) => theme.colors.text[100]};
+    background-color: ${({ theme }) => theme.colors?.body};
+    color: ${({ theme }) => theme.colors?.text[100]};
   }
 
   /* ===== Custom Scroll Bar ===== */
@@ -40,21 +39,21 @@ const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
   }
   /* Track */
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.body};
+    background: ${({ theme }) => theme.colors?.body};
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.scrollHandle};
+    background: ${({ theme }) => theme.colors?.scrollHandle};
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.scrollHandleHover};
+    background: ${({ theme }) => theme.colors?.scrollHandleHover};
   }
 
   input[type=text] {
-    background-color: ${({ theme }) => theme.colors.body};
-    color: ${({ theme }) => theme.colors.text[100]};
-    caret-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors?.body};
+    color: ${({ theme }) => theme.colors?.text[100]};
+    caret-color: ${({ theme }) => theme.colors?.primary};
   }
   input[type=text]:focus-visible {
     outline: none;

@@ -6,9 +6,9 @@ export const Wrapper = styled.span`
 `;
 
 export const WebsiteName = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors?.primary};
 `;
 
 export const User = styled.span`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors?.secondary};
 `;

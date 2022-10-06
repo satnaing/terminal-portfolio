@@ -17,7 +17,7 @@ export const ProjectTitle = styled.div`
 `;
 
 export const ProjectDesc = styled.div`
-  color: ${({ theme }) => theme.colors.text[200]};
+  color: ${({ theme }) => theme.colors?.text[200]};
   text-align: justify;
   line-height: 1.5rem;
   max-width: 500px;
