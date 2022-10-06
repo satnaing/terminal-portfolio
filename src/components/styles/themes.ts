@@ -1,22 +1,7 @@
-export type Theme = {
-  id: string;
-  name: string;
-  colors: {
-    body: string;
-    scrollHandle: string;
-    scrollHandleHover: string;
-    primary: string;
-    secondary: string;
-    text: {
-      100: string;
-      200: string;
-      300: string;
-    };
-  };
-};
+import { DefaultTheme } from "styled-components";
 
 export type Themes = {
-  [key: string]: Theme;
+  [key: string]: DefaultTheme;
 };
 
 const theme: Themes = {

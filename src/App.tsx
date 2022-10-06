@@ -1,12 +1,11 @@
 import { createContext, useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
-import { Theme } from "./components/styles/themes";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 import { useTheme } from "./hooks/useTheme";
 import GlobalStyle from "./components/styles/GlobalStyle";
 import Terminal from "./components/Terminal";
 
 export const themeContext = createContext<
-  ((switchTheme: Theme) => void) | null
+  ((switchTheme: DefaultTheme) => void) | null
 >(null);
 
 function App() {
@@ -23,17 +22,17 @@ function App() {
     if (document) {
       document!
         .querySelector('meta[name="theme-color"]')!
-        .setAttribute("content", theme.colors.body);
+        .setAttribute("content", theme.colors?.body);
       document!
         .querySelector('meta[name="msapplication-TileColor"]')!
-        .setAttribute("content", theme.colors.body);
+        .setAttribute("content", theme.colors?.body);
       document!
         .querySelector('link[rel="mask-icon"]')!
-        .setAttribute("color", theme.colors.body);
+        .setAttribute("color", theme.colors?.body);
     }
   }, [selectedTheme]);
 
-  const themeSwitcher = (switchTheme: Theme) => {
+  const themeSwitcher = (switchTheme: DefaultTheme) => {
     setSelectedTheme(switchTheme);
     setMode(switchTheme);
   };
