@@ -10,7 +10,7 @@ const GeneralOutput: React.FC<{
   return arg.length > 0 ? (
     <UsageDiv>Usage: {cmd}</UsageDiv>
   ) : (
-    <Wrapper>{children}</Wrapper>
+    <Wrapper data-testid={`valid-cmd-${cmd}`}>{children}</Wrapper>
   );
 };
 
