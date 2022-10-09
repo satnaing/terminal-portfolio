@@ -16,7 +16,11 @@ describe("Terminal Component", () => {
   const { user } = setup(<Terminal />);
   const terminalInput = screen.getByTitle("terminal-input") as HTMLInputElement;
 
-  describe("Input Features", () => {
+  describe("Input Features & Initial State", () => {
+    it("should display welcome cmd by default", () => {
+      expect(screen.getByTestId("input-command").textContent).toBe("welcome");
+    });
+
     it("should change input value", async () => {
       await user.type(terminalInput, "demo");
       expect(terminalInput.value).toBe("demo");
