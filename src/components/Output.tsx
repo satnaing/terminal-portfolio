@@ -14,12 +14,13 @@ import Themes from "./commands/Themes";
 import { OutputContainer } from "./styles/Output.styled";
 
 type Props = {
+  index: number;
   cmd: string;
 };
 
-const Output: React.FC<Props> = ({ cmd }) => {
+const Output: React.FC<Props> = ({ index, cmd }) => {
   return (
-    <OutputContainer>
+    <OutputContainer data-testid={index === 0 ? "latest-output" : null}>
       {
         {
           about: <About />,
