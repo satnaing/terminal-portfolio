@@ -15,6 +15,8 @@ function setup(jsx: JSX.Element) {
 describe("Terminal Component", () => {
   const { user } = setup(<Terminal />);
   const terminalInput = screen.getByTitle("terminal-input") as HTMLInputElement;
+  const latestTextOutput =
+    screen.getByTestId("latest-output").firstChild?.textContent;
 
   describe("Input Features", () => {
     it("should change input value", async () => {
@@ -29,7 +31,7 @@ describe("Terminal Component", () => {
 
     it("should return command not found when input value is invalid", async () => {
       await user.type(terminalInput, "demo{enter}");
-      expect(screen.getByTestId("not-found-demo").innerHTML).toBe(
+      expect(screen.getByTestId("not-found-0").innerHTML).toBe(
         "command not found: demo"
       );
     });
@@ -38,14 +40,12 @@ describe("Terminal Component", () => {
   describe("Input Commands", () => {
     it("should return 'visitor' when user type 'whoami' cmd", async () => {
       await user.type(terminalInput, "whoami{enter}");
-      expect(screen.getByTestId("valid-cmd-whoami").innerHTML).toBe("visitor");
+      expect(latestTextOutput).toBe("visitor");
     });
 
     it("should return '/home/satnaing' when user type 'pwd' cmd", async () => {
       await user.type(terminalInput, "pwd{enter}");
-      expect(screen.getByTestId("valid-cmd-pwd").innerHTML).toBe(
-        "/home/satnaing"
-      );
+      expect(latestTextOutput).toBe("/home/satnaing");
     });
   });
 });
