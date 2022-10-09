@@ -214,7 +214,7 @@ const Terminal = () => {
               <TermInfo />
               <MobileBr />
               <MobileSpan>&#62;</MobileSpan>
-              <span>{cmdH}</span>
+              <span data-testid="input-command">{cmdH}</span>
             </div>
             {validCommand ? (
               <termContext.Provider value={contextValue}>
