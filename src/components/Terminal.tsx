@@ -218,7 +218,7 @@ const Terminal = () => {
             </div>
             {validCommand ? (
               <termContext.Provider value={contextValue}>
-                <Output cmd={commandArray[0]} />
+                <Output index={index} cmd={commandArray[0]} />
               </termContext.Provider>
             ) : cmdH === "" ? (
               <Empty />
