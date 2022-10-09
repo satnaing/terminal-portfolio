@@ -28,16 +28,16 @@ describe("Terminal Component", () => {
       await user.type(terminalInput, "demo{enter}");
       expect(terminalInput.value).toBe("");
     });
+  });
 
+  describe("Input Commands", () => {
     it("should return command not found when input value is invalid", async () => {
       await user.type(terminalInput, "demo{enter}");
       expect(screen.getByTestId("not-found-0").innerHTML).toBe(
         "command not found: demo"
       );
     });
-  });
 
-  describe("Input Commands", () => {
     it("should return 'visitor' when user type 'whoami' cmd", async () => {
       await user.type(terminalInput, "whoami{enter}");
       expect(latestTextOutput).toBe("visitor");
