@@ -223,7 +223,7 @@ const Terminal = () => {
             ) : cmdH === "" ? (
               <Empty />
             ) : (
-              <CmdNotFound data-testid={`not-found-${cmdH}`}>
+              <CmdNotFound data-testid={`not-found-${index}`}>
                 command not found: {cmdH}
               </CmdNotFound>
             )}
