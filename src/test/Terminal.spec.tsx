@@ -15,8 +15,6 @@ function setup(jsx: JSX.Element) {
 describe("Terminal Component", () => {
   const { user } = setup(<Terminal />);
   const terminalInput = screen.getByTitle("terminal-input") as HTMLInputElement;
-  const latestTextOutput =
-    screen.getByTestId("latest-output").firstChild?.textContent;
 
   describe("Input Features", () => {
     it("should change input value", async () => {
@@ -40,12 +38,15 @@ describe("Terminal Component", () => {
 
     it("should return 'visitor' when user type 'whoami' cmd", async () => {
       await user.type(terminalInput, "whoami{enter}");
-      expect(latestTextOutput).toBe("visitor");
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "visitor"
+      );
     });
-
     it("should return '/home/satnaing' when user type 'pwd' cmd", async () => {
       await user.type(terminalInput, "pwd{enter}");
-      expect(latestTextOutput).toBe("/home/satnaing");
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "/home/satnaing"
+      );
     });
   });
 });
