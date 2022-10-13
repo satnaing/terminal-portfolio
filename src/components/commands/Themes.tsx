@@ -40,7 +40,7 @@ const Themes: React.FC = () => {
   ) : (
     <Wrapper>
       <ThemesWrapper>
-        {myThemes.map((myTheme) => (
+        {myThemes.map(myTheme => (
           <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>
         ))}
       </ThemesWrapper>

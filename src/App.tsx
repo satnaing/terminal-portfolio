@@ -21,13 +21,13 @@ function App() {
   useEffect(() => {
     if (document) {
       document!
-        .querySelector('meta[name="theme-color"]')!
+        .querySelector("meta[name='theme-color']")!
         .setAttribute("content", theme.colors?.body);
       document!
-        .querySelector('meta[name="msapplication-TileColor"]')!
+        .querySelector("meta[name='msapplication-TileColor']")!
         .setAttribute("content", theme.colors?.body);
       document!
-        .querySelector('link[rel="mask-icon"]')!
+        .querySelector("link[rel='mask-icon']")!
         .setAttribute("color", theme.colors?.body);
     }
   }, [selectedTheme]);

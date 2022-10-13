@@ -147,7 +147,7 @@ const Terminal = () => {
       if (pointer < cmdHistory.length) {
         setInputVal(cmdHistory[pointer]);
         pointer + 1 !== cmdHistory.length &&
-          setPointer((prevState) => prevState + 1);
+          setPointer(prevState => prevState + 1);
         pointer + 1 !== cmdHistory.length && inputRef?.current?.blur();
       }
     }
@@ -156,7 +156,7 @@ const Terminal = () => {
     if (e.key === "ArrowDown") {
       if (pointer > 0) {
         setInputVal(cmdHistory[pointer - 1]);
-        pointer - 1 !== 0 && setPointer((prevState) => prevState - 1);
+        pointer - 1 !== 0 && setPointer(prevState => prevState - 1);
         pointer - 1 !== 0 && inputRef?.current?.blur();
       }
     }
@@ -173,7 +173,7 @@ const Terminal = () => {
     <Wrapper ref={containerRef}>
       {hints.length > 1 && (
         <div>
-          {hints.map((hCmd) => (
+          {hints.map(hCmd => (
             <Hints key={hCmd}>{hCmd}</Hints>
           ))}
         </div>

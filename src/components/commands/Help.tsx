@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import _ from "lodash";
 import {
   Cmd,
   CmdDesc,

@@ -11,7 +11,7 @@ const History: React.FC = () => {
     <UsageDiv>Usage: history</UsageDiv>
   ) : (
     <Wrapper>
-      {currentHistory.map((cmd) => (
+      {currentHistory.map(cmd => (
         <div key={_.uniqueId(`${cmd}_`)}>{cmd}</div>
       ))}
     </Wrapper>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import _ from "lodash";
 import themes from "../components/styles/themes";
 import { setToLS, getFromLS } from "../utils/storage";
 import { DefaultTheme } from "styled-components";

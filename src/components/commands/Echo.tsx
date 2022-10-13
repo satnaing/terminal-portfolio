@@ -5,7 +5,7 @@ import { termContext } from "../Terminal";
 
 const Echo: React.FC = () => {
   const { arg } = useContext(termContext);
-  let argStr = _.trim(_.trim(_.join(arg, " "), "'"), '"');
+  const argStr = _.trim(_.trim(_.join(arg, " "), "'"), '"');
   return <Wrapper>{argStr}</Wrapper>;
 };
 
