@@ -53,5 +53,10 @@ describe("Terminal Component", () => {
         "/home/satnaing"
       );
     });
+
+    it("should clear everything when user type 'clear' cmd", async () => {
+      await user.type(terminalInput, "clear{enter}");
+      expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
+    });
   });
 });
