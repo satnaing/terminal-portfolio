@@ -58,5 +58,32 @@ describe("Terminal Component", () => {
       await user.type(terminalInput, "clear{enter}");
       expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
     });
+
+    it("should return `hello world` when user type `echo hello world` cmd", async () => {
+      await user.type(terminalInput, "echo hello world{enter}");
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "hello world"
+      );
+    });
+
+    it("should return `hello world` without quotes when user type `echo 'hello world'` cmd", async () => {
+      // omit single quotes
+      await user.type(terminalInput, "echo 'hello world'{enter}");
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "hello world"
+      );
+
+      // omit double quotes
+      await user.type(terminalInput, 'echo "hello world"{enter}');
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "hello world"
+      );
+
+      // omit backtick
+      await user.type(terminalInput, "echo `hello world`{enter}");
+      expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
+        "hello world"
+      );
+    });
   });
 });
