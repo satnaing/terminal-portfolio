@@ -33,7 +33,7 @@ describe("Terminal Component", () => {
   });
 
   describe("Input Commands", () => {
-    it("should return command not found when input value is invalid", async () => {
+    it("should return 'command not found' when input value is invalid", async () => {
       await user.type(terminalInput, "demo{enter}");
       expect(screen.getByTestId("not-found-0").innerHTML).toBe(
         "command not found: demo"
