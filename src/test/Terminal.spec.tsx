@@ -24,6 +24,9 @@ describe("Terminal Component", () => {
     it("should change input value", async () => {
       await user.type(terminalInput, "demo");
       expect(terminalInput.value).toBe("demo");
+
+      // clear input
+      terminalInput.value = "";
     });
 
     it("should clear input value when click enter", async () => {
@@ -52,6 +55,29 @@ describe("Terminal Component", () => {
       expect(screen.getByTestId("latest-output").firstChild?.textContent).toBe(
         "/home/satnaing"
       );
+    });
+
+    it("should display cmd history when user type 'history' cmd", async () => {
+      await user.type(terminalInput, "history{enter}");
+
+      const commands =
+        screen.getByTestId("latest-output").firstChild?.childNodes;
+
+      expect(commands?.length).toBe(6);
+
+      const typedCommands: string[] = [];
+      commands?.forEach(cmd => {
+        typedCommands.push(cmd.textContent || "");
+      });
+
+      expect(typedCommands).toEqual([
+        "welcome",
+        "demo",
+        "demo",
+        "whoami",
+        "pwd",
+        "history",
+      ]);
     });
 
     it("should clear everything when user type 'clear' cmd", async () => {
