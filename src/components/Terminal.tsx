@@ -170,7 +170,7 @@ const Terminal = () => {
   }, [inputRef, inputVal, pointer]);
 
   return (
-    <Wrapper ref={containerRef}>
+    <Wrapper data-testid="terminal-wrapper" ref={containerRef}>
       {hints.length > 1 && (
         <div>
           {hints.map(hCmd => (
