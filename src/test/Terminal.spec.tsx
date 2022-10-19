@@ -29,9 +29,6 @@ describe("Terminal Component", () => {
     it("should change input value", async () => {
       await user.type(terminalInput, "demo");
       expect(terminalInput.value).toBe("demo");
-
-      // clear input
-      terminalInput.value = "";
     });
 
     it("should clear input value when click enter", async () => {
