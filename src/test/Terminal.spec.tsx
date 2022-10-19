@@ -63,26 +63,20 @@ describe("Terminal Component", () => {
     });
 
     it("should display cmd history when user type 'history' cmd", async () => {
+      await user.type(terminalInput, "whoami{enter}");
       await user.type(terminalInput, "history{enter}");
 
       const commands =
         screen.getByTestId("latest-output").firstChild?.childNodes;
 
-      expect(commands?.length).toBe(6);
+      expect(commands?.length).toBe(3);
 
       const typedCommands: string[] = [];
       commands?.forEach(cmd => {
         typedCommands.push(cmd.textContent || "");
       });
 
-      expect(typedCommands).toEqual([
-        "welcome",
-        "demo",
-        "demo",
-        "whoami",
-        "pwd",
-        "history",
-      ]);
+      expect(typedCommands).toEqual(["welcome", "whoami", "history"]);
     });
 
     it("should clear everything when user type 'clear' cmd", async () => {
