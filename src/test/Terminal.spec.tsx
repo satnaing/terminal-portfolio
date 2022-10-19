@@ -107,5 +107,10 @@ describe("Terminal Component", () => {
         "hello world"
       );
     });
+
+    it("should render About component when user type 'about' cmd", async () => {
+      await user.type(terminalInput, "about{enter}");
+      expect(screen.getByTestId("about")).toBeInTheDocument();
+    });
   });
 });
