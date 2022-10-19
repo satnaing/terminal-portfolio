@@ -19,17 +19,17 @@ function App() {
 
   // Update meta tag colors when switching themes
   useEffect(() => {
-    if (document) {
-      document!
-        .querySelector("meta[name='theme-color']")!
-        .setAttribute("content", theme.colors?.body);
-      document!
-        .querySelector("meta[name='msapplication-TileColor']")!
-        .setAttribute("content", theme.colors?.body);
-      document!
-        .querySelector("link[rel='mask-icon']")!
-        .setAttribute("color", theme.colors?.body);
-    }
+    const themeColor = theme.colors?.body;
+
+    const metaThemeColor = document.querySelector("meta[name='theme-color']");
+    const maskIcon = document.querySelector("link[rel='mask-icon']");
+    const metaMsTileColor = document.querySelector(
+      "meta[name='msapplication-TileColor']"
+    );
+
+    metaThemeColor && metaThemeColor.setAttribute("content", themeColor);
+    metaMsTileColor && metaMsTileColor.setAttribute("content", themeColor);
+    maskIcon && maskIcon.setAttribute("color", themeColor);
   }, [selectedTheme]);
 
   const themeSwitcher = (switchTheme: DefaultTheme) => {
