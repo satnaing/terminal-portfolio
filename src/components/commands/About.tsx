@@ -12,7 +12,7 @@ const About: React.FC = () => {
   return arg.length > 0 ? (
     <UsageDiv>Usage: about</UsageDiv>
   ) : (
-    <AboutWrapper>
+    <AboutWrapper data-testid="about">
       <p>
         Hi, my name is <HighlightSpan>Sat Naing</HighlightSpan>!
       </p>
