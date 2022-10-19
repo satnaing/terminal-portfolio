@@ -13,8 +13,14 @@ function setup(jsx: JSX.Element) {
 }
 
 describe("Terminal Component", () => {
-  const { user } = setup(<Terminal />);
-  const terminalInput = screen.getByTitle("terminal-input") as HTMLInputElement;
+  let terminalInput: HTMLInputElement;
+  let user: UserEvent;
+
+  beforeEach(() => {
+    const termSetup = setup(<Terminal />);
+    user = termSetup.user;
+    terminalInput = screen.getByTitle("terminal-input");
+  });
 
   describe("Input Features & Initial State", () => {
     it("should display welcome cmd by default", () => {
