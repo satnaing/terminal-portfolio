@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
-// import { render, fireEvent, screen } from "@testing-library/react";
-import { render, screen } from "../utils/test-util";
-import userEvent from "@testing-library/user-event";
+import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
+import { render, screen, userEvent } from "../utils/test-utils";
 import Terminal from "../components/Terminal";
 
 // setup function
