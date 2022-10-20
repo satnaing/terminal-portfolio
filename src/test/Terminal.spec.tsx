@@ -151,5 +151,10 @@ describe("Terminal Component", () => {
         );
       });
     });
+
+    it("should return usage component for 'projects' cmd with invalid arg", async () => {
+      await user.type(terminalInput, `projects sth{enter}`);
+      expect(screen.getByTestId("projects-invalid-arg")).toBeInTheDocument();
+    });
   });
 });
