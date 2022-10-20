@@ -38,7 +38,7 @@ const Themes: React.FC = () => {
   return arg.length > 0 ? (
     checkArg(arg)
   ) : (
-    <Wrapper>
+    <Wrapper data-testid="themes">
       <ThemesWrapper>
         {myThemes.map(myTheme => (
           <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>

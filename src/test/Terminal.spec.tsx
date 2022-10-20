@@ -138,6 +138,11 @@ describe("Terminal Component", () => {
       await user.type(terminalInput, "socials{enter}");
       expect(screen.getByTestId("socials")).toBeInTheDocument();
     });
+
+    it("should render themes component when user type 'themes' cmd", async () => {
+      await user.type(terminalInput, "themes{enter}");
+      expect(screen.getByTestId("themes")).toBeInTheDocument();
+    });
   });
 
   describe("Invalid Arguments", () => {
