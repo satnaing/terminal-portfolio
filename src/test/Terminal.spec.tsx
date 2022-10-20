@@ -113,4 +113,27 @@ describe("Terminal Component", () => {
       expect(screen.getByTestId("about")).toBeInTheDocument();
     });
   });
+
+  describe("Invalid Arguments", () => {
+    const commands = [
+      "about",
+      "clear",
+      "education",
+      "gui",
+      "help",
+      "history",
+      "pwd",
+      "welcome",
+      "whoami",
+    ];
+
+    commands.forEach(cmd => {
+      it(`works correctly for ${cmd}`, async () => {
+        await user.type(terminalInput, `${cmd} sth{enter}`);
+        expect(screen.getByTestId("usage-output").innerHTML).toBe(
+          `Usage: ${cmd}`
+        );
+      });
+    });
+  });
 });
