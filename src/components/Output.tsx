@@ -28,7 +28,7 @@ const Output: React.FC<Props> = ({ index, cmd }) => {
   // return 'Usage: <cmd>' if command arg is not valid
   // eg: about tt
   if (!specialCmds.includes(cmd) && arg.length > 0)
-    return <UsageDiv>Usage: {cmd}</UsageDiv>;
+    return <UsageDiv data-testid="usage-output">Usage: {cmd}</UsageDiv>;
 
   return (
     <OutputContainer data-testid={index === 0 ? "latest-output" : null}>
