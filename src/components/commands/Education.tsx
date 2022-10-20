@@ -7,7 +7,7 @@ const Education: React.FC = () => {
   const { arg } = useContext(termContext);
 
   return arg.length > 0 ? (
-    <UsageDiv>Usage: edu-bg</UsageDiv>
+    <UsageDiv>Usage: education</UsageDiv>
   ) : (
     <Wrapper>
       <EduIntro>Here is my education background!</EduIntro>
