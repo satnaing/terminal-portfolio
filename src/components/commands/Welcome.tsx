@@ -15,7 +15,7 @@ import { termContext } from "../Terminal";
 const Welcome: React.FC = () => {
   const { arg } = useContext(termContext);
   return arg.length > 0 ? (
-    <UsageDiv>Usage: about</UsageDiv>
+    <UsageDiv>Usage: welcome</UsageDiv>
   ) : (
     <HeroContainer>
       <div className="info-section">
