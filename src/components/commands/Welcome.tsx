@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Cmd,
   HeroContainer,
@@ -9,14 +8,9 @@ import {
   PreWrapper,
   Seperator,
 } from "../styles/Welcome.styled";
-import { UsageDiv } from "../styles/Output.styled";
-import { termContext } from "../Terminal";
 
 const Welcome: React.FC = () => {
-  const { arg } = useContext(termContext);
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: welcome</UsageDiv>
-  ) : (
+  return (
     <HeroContainer>
       <div className="info-section">
         <PreName>

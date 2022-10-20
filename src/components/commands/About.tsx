@@ -1,17 +1,11 @@
-import { useContext } from "react";
 import {
   AboutWrapper,
   HighlightAlt,
   HighlightSpan,
 } from "../styles/About.styled";
-import { UsageDiv } from "../styles/Output.styled";
-import { termContext } from "../Terminal";
 
 const About: React.FC = () => {
-  const { arg } = useContext(termContext);
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: about</UsageDiv>
-  ) : (
+  return (
     <AboutWrapper data-testid="about">
       <p>
         Hi, my name is <HighlightSpan>Sat Naing</HighlightSpan>!

@@ -1,14 +1,8 @@
-import { useContext } from "react";
 import { EduIntro, EduList } from "../styles/Education.styled";
-import { UsageDiv, Wrapper } from "../styles/Output.styled";
-import { termContext } from "../Terminal";
+import { Wrapper } from "../styles/Output.styled";
 
 const Education: React.FC = () => {
-  const { arg } = useContext(termContext);
-
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: education</UsageDiv>
-  ) : (
+  return (
     <Wrapper>
       <EduIntro>Here is my education background!</EduIntro>
       {eduBg.map(({ title, desc }) => (
