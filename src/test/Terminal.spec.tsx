@@ -108,6 +108,12 @@ describe("Terminal Component", () => {
       );
     });
 
+    it("should render Welcome component when user type 'welcome' cmd", async () => {
+      await user.type(terminalInput, "clear{enter}");
+      await user.type(terminalInput, "welcome{enter}");
+      expect(screen.getByTestId("welcome")).toBeInTheDocument();
+    });
+
     it("should render About component when user type 'about' cmd", async () => {
       await user.type(terminalInput, "about{enter}");
       expect(screen.getByTestId("about")).toBeInTheDocument();

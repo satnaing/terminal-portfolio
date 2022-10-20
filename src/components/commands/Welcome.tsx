@@ -11,7 +11,7 @@ import {
 
 const Welcome: React.FC = () => {
   return (
-    <HeroContainer>
+    <HeroContainer data-testid="welcome">
       <div className="info-section">
         <PreName>
           {`        
