@@ -144,7 +144,7 @@ describe("Terminal Component", () => {
     ];
 
     commands.forEach(cmd => {
-      it(`invalid arg for ${cmd}`, async () => {
+      it(`should return usage component for ${cmd} cmd with invalid arg`, async () => {
         await user.type(terminalInput, `${cmd} sth{enter}`);
         expect(screen.getByTestId("usage-output").innerHTML).toBe(
           `Usage: ${cmd}`
