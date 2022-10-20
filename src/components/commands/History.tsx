@@ -8,7 +8,7 @@ const History: React.FC = () => {
   const currentHistory = _.reverse(_.slice(history, index));
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="history">
       {currentHistory.map(cmd => (
         <div key={_.uniqueId(`${cmd}_`)}>{cmd}</div>
       ))}
