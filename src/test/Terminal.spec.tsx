@@ -142,7 +142,6 @@ describe("Terminal Component", () => {
       "welcome",
       "whoami",
     ];
-
     commands.forEach(cmd => {
       it(`should return usage component for ${cmd} cmd with invalid arg`, async () => {
         await user.type(terminalInput, `${cmd} sth{enter}`);
@@ -152,19 +151,12 @@ describe("Terminal Component", () => {
       });
     });
 
-    it("should return usage component for 'projects' cmd with invalid arg", async () => {
-      await user.type(terminalInput, `projects sth{enter}`);
-      expect(screen.getByTestId("projects-invalid-arg")).toBeInTheDocument();
-    });
-
-    it("should return usage component for 'socials' cmd with invalid arg", async () => {
-      await user.type(terminalInput, `socials sth{enter}`);
-      expect(screen.getByTestId("socials-invalid-arg")).toBeInTheDocument();
-    });
-
-    it("should return usage component for 'themes' cmd with invalid arg", async () => {
-      await user.type(terminalInput, `themes sth{enter}`);
-      expect(screen.getByTestId("themes-invalid-arg")).toBeInTheDocument();
+    const cmdsWithArgs = ["projects", "socials", "themes"];
+    cmdsWithArgs.forEach(cmd => {
+      it(`should return usage component for '${cmd}' cmd with invalid arg`, async () => {
+        await user.type(terminalInput, `${cmd} sth{enter}`);
+        expect(screen.getByTestId(`${cmd}-invalid-arg`)).toBeInTheDocument();
+      });
     });
   });
 });
