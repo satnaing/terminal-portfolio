@@ -156,5 +156,10 @@ describe("Terminal Component", () => {
       await user.type(terminalInput, `projects sth{enter}`);
       expect(screen.getByTestId("projects-invalid-arg")).toBeInTheDocument();
     });
+
+    it("should return usage component for 'socials' cmd with invalid arg", async () => {
+      await user.type(terminalInput, `socials sth{enter}`);
+      expect(screen.getByTestId("socials-invalid-arg")).toBeInTheDocument();
+    });
   });
 });
