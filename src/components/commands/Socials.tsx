@@ -35,7 +35,7 @@ const Socials: React.FC = () => {
   return arg.length > 0 ? (
     checkArg(arg)
   ) : (
-    <HelpWrapper>
+    <HelpWrapper data-testid="socials">
       <ProjectsIntro>Here are my social links</ProjectsIntro>
       {socials.map(({ id, title, url, tab }) => (
         <CmdList key={title}>
