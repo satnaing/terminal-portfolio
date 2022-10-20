@@ -118,6 +118,11 @@ describe("Terminal Component", () => {
       await user.type(terminalInput, "about{enter}");
       expect(screen.getByTestId("about")).toBeInTheDocument();
     });
+
+    it("should render Education component when user type 'education' cmd", async () => {
+      await user.type(terminalInput, "education{enter}");
+      expect(screen.getByTestId("education")).toBeInTheDocument();
+    });
   });
 
   describe("Invalid Arguments", () => {
