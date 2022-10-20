@@ -114,34 +114,20 @@ describe("Terminal Component", () => {
       expect(screen.getByTestId("welcome")).toBeInTheDocument();
     });
 
-    it("should render About component when user type 'about' cmd", async () => {
-      await user.type(terminalInput, "about{enter}");
-      expect(screen.getByTestId("about")).toBeInTheDocument();
-    });
-
-    it("should render Education component when user type 'education' cmd", async () => {
-      await user.type(terminalInput, "education{enter}");
-      expect(screen.getByTestId("education")).toBeInTheDocument();
-    });
-
-    it("should render Help component when user type 'help' cmd", async () => {
-      await user.type(terminalInput, "help{enter}");
-      expect(screen.getByTestId("help")).toBeInTheDocument();
-    });
-
-    it("should render Projects component when user type 'projects' cmd", async () => {
-      await user.type(terminalInput, "projects{enter}");
-      expect(screen.getByTestId("projects")).toBeInTheDocument();
-    });
-
-    it("should render Socials component when user type 'socials' cmd", async () => {
-      await user.type(terminalInput, "socials{enter}");
-      expect(screen.getByTestId("socials")).toBeInTheDocument();
-    });
-
-    it("should render themes component when user type 'themes' cmd", async () => {
-      await user.type(terminalInput, "themes{enter}");
-      expect(screen.getByTestId("themes")).toBeInTheDocument();
+    const otherCmds = [
+      "about",
+      "education",
+      "help",
+      "history",
+      "projects",
+      "socials",
+      "themes",
+    ];
+    otherCmds.forEach(cmd => {
+      it(`should render ${cmd} component when user type '${cmd}' cmd`, async () => {
+        await user.type(terminalInput, `${cmd}{enter}`);
+        expect(screen.getByTestId(`${cmd}`)).toBeInTheDocument();
+      });
     });
   });
 
