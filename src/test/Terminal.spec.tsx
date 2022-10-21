@@ -190,7 +190,7 @@ describe("Terminal Component", () => {
 
     it("should clear when 'Ctrl + l' is pressed", async () => {
       await user.type(terminalInput, "history{enter}");
-      await user.type(terminalInput, "{Control>}l{/Control}");
+      await user.keyboard("{Control>}l{/Control}");
       expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
     });
   });
