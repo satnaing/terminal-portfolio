@@ -179,5 +179,13 @@ describe("Terminal Component", () => {
         expect(terminalInput.value).toBe(cmd);
       });
     });
+
+    allCmds.forEach(cmd => {
+      it(`should autocomplete '${cmd}' when 'Ctrl + i' is pressed`, async () => {
+        await user.type(terminalInput, cmd.slice(0, 2));
+        await user.keyboard("{Control>}i{/Control}");
+        expect(terminalInput.value).toBe(cmd);
+      });
+    });
   });
 });
