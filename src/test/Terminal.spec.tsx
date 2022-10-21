@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
 import { render, screen, userEvent } from "../utils/test-utils";
-import Terminal from "../components/Terminal";
+import Terminal, { commands } from "../components/Terminal";
 
 // setup function
 function setup(jsx: JSX.Element) {
@@ -11,22 +11,7 @@ function setup(jsx: JSX.Element) {
   };
 }
 
-const allCmds = [
-  "about",
-  "clear",
-  "echo",
-  "education",
-  "email",
-  "gui",
-  "help",
-  "history",
-  "projects",
-  "pwd",
-  "socials",
-  "themes",
-  "welcome",
-  "whoami",
-];
+const allCmds = commands.map(cmdObj => cmdObj.cmd);
 
 describe("Terminal Component", () => {
   let terminalInput: HTMLInputElement;
