@@ -193,5 +193,13 @@ describe("Terminal Component", () => {
       await user.keyboard("{Control>}l{/Control}");
       expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
     });
+
+    it("should go to previous cmd when 'UP Arrow' is pressed", async () => {
+      await user.type(terminalInput, "about{enter}");
+      await user.keyboard("{arrowup}");
+      expect(terminalInput.value).toBe("about");
+      await user.keyboard("{arrowup}");
+      expect(terminalInput.value).toBe("welcome");
+    });
   });
 });
