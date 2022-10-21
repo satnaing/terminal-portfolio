@@ -187,5 +187,11 @@ describe("Terminal Component", () => {
         expect(terminalInput.value).toBe(cmd);
       });
     });
+
+    it("should clear when 'Ctrl + l' is pressed", async () => {
+      await user.type(terminalInput, "history{enter}");
+      await user.type(terminalInput, "{Control>}l{/Control}");
+      expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
+    });
   });
 });
