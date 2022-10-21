@@ -170,4 +170,14 @@ describe("Terminal Component", () => {
       });
     });
   });
+
+  describe("Keyboard shortcuts", () => {
+    allCmds.forEach(cmd => {
+      it(`should autocomplete '${cmd}' when 'Tab' is pressed`, async () => {
+        await user.type(terminalInput, cmd.slice(0, 2));
+        await user.tab();
+        expect(terminalInput.value).toBe(cmd);
+      });
+    });
+  });
 });
