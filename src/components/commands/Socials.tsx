@@ -24,7 +24,7 @@ const Socials: React.FC = () => {
   const checkArg = (a: string[]) => {
     if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
-        <UsageDiv>
+        <UsageDiv data-testid="socials-invalid-arg">
           Usage: socials go &#60;social-no&#62; <br />
           eg: socials go 1
         </UsageDiv>
@@ -35,7 +35,7 @@ const Socials: React.FC = () => {
   return arg.length > 0 ? (
     checkArg(arg)
   ) : (
-    <HelpWrapper>
+    <HelpWrapper data-testid="socials">
       <ProjectsIntro>Here are my social links</ProjectsIntro>
       {socials.map(({ id, title, url, tab }) => (
         <CmdList key={title}>

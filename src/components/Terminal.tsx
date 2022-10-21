@@ -149,7 +149,7 @@ const Terminal = () => {
       if (pointer + 1 === cmdHistory.length) return;
 
       setInputVal(cmdHistory[pointer + 1]);
-      setPointer((prevState) => prevState + 1);
+      setPointer(prevState => prevState + 1);
       inputRef?.current?.blur();
     }
 
@@ -164,7 +164,7 @@ const Terminal = () => {
       }
 
       setInputVal(cmdHistory[pointer - 1]);
-      setPointer((prevState) => prevState - 1);
+      setPointer(prevState => prevState - 1);
       inputRef?.current?.blur();
     }
   };
@@ -177,10 +177,10 @@ const Terminal = () => {
   }, [inputRef, inputVal, pointer]);
 
   return (
-    <Wrapper ref={containerRef}>
+    <Wrapper data-testid="terminal-wrapper" ref={containerRef}>
       {hints.length > 1 && (
         <div>
-          {hints.map((hCmd) => (
+          {hints.map(hCmd => (
             <Hints key={hCmd}>{hCmd}</Hints>
           ))}
         </div>
@@ -221,16 +221,18 @@ const Terminal = () => {
               <TermInfo />
               <MobileBr />
               <MobileSpan>&#62;</MobileSpan>
-              <span>{cmdH}</span>
+              <span data-testid="input-command">{cmdH}</span>
             </div>
             {validCommand ? (
               <termContext.Provider value={contextValue}>
-                <Output cmd={commandArray[0]} />
+                <Output index={index} cmd={commandArray[0]} />
               </termContext.Provider>
             ) : cmdH === "" ? (
               <Empty />
             ) : (
-              <CmdNotFound>command not found: {cmdH}</CmdNotFound>
+              <CmdNotFound data-testid={`not-found-${index}`}>
+                command not found: {cmdH}
+              </CmdNotFound>
             )}
           </div>
         );

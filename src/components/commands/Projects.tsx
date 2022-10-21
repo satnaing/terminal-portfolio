@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
   const checkArg = (a: string[]) => {
     if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
       return (
-        <UsageDiv>
+        <UsageDiv data-testid="projects-invalid-arg">
           Usage: projects go &#60;project-no&#62; <br />
           eg: projects go 1
         </UsageDiv>
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
   return arg.length > 0 ? (
     checkArg(arg)
   ) : (
-    <>
+    <div data-testid="projects">
       <ProjectsIntro>
         “Talk is cheap. Show me the code”? I got you. <br />
         Here are some of my projects you shouldn't misss
@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
         Usage: projects go &#60;project-no&#62; <br />
         eg: projects go 1
       </UsageDiv>
-    </>
+    </div>
   );
 };
 

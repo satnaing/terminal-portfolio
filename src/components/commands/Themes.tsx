@@ -27,7 +27,7 @@ const Themes: React.FC = () => {
   const checkArg = (a: string[]) => {
     if (a[0] !== "set" || !_.includes(myThemes, a[1]))
       return (
-        <UsageDiv>
+        <UsageDiv data-testid="themes-invalid-arg">
           Usage: themes set &#60;theme-name&#62; <br />
           eg: themes set dark
         </UsageDiv>
@@ -38,9 +38,9 @@ const Themes: React.FC = () => {
   return arg.length > 0 ? (
     checkArg(arg)
   ) : (
-    <Wrapper>
+    <Wrapper data-testid="themes">
       <ThemesWrapper>
-        {myThemes.map((myTheme) => (
+        {myThemes.map(myTheme => (
           <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>
         ))}
       </ThemesWrapper>

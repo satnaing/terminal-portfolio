@@ -1,17 +1,10 @@
-import { useContext } from "react";
-import { UsageDiv, Wrapper } from "../styles/Output.styled";
-import { termContext } from "../Terminal";
+import { Wrapper } from "../styles/Output.styled";
 
-const GeneralOutput: React.FC<{
+type Props = {
   children: string;
-  cmd: string;
-}> = ({ cmd, children }) => {
-  const { arg } = useContext(termContext);
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: {cmd}</UsageDiv>
-  ) : (
-    <Wrapper>{children}</Wrapper>
-  );
 };
 
+const GeneralOutput: React.FC<Props> = ({ children }) => (
+  <Wrapper>{children}</Wrapper>
+);
 export default GeneralOutput;

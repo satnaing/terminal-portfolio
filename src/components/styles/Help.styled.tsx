@@ -10,11 +10,11 @@ export const CmdList = styled.div`
 `;
 
 export const Cmd = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors?.primary};
 `;
 
 export const CmdDesc = styled.span`
-  color: ${({ theme }) => theme.colors.text[200]};
+  color: ${({ theme }) => theme.colors?.text[200]};
   margin-bottom: 0.75rem;
 
   @media (max-width: 550px) {

@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import _ from "lodash";
 import {
   Cmd,
   CmdDesc,
@@ -7,16 +5,12 @@ import {
   HelpWrapper,
   KeyContainer,
 } from "../styles/Help.styled";
-import { commands, termContext } from "../Terminal";
+import { commands } from "../Terminal";
 import { generateTabs } from "../../utils/funcs";
-import { UsageDiv } from "../styles/Output.styled";
 
 const Help: React.FC = () => {
-  const { arg } = useContext(termContext);
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: help</UsageDiv>
-  ) : (
-    <HelpWrapper>
+  return (
+    <HelpWrapper data-testid="help">
       {commands.map(({ cmd, desc, tab }) => (
         <CmdList key={cmd}>
           <Cmd>{cmd}</Cmd>

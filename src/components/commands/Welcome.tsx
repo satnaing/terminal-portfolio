@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Cmd,
   HeroContainer,
@@ -9,21 +8,16 @@ import {
   PreWrapper,
   Seperator,
 } from "../styles/Welcome.styled";
-import { UsageDiv } from "../styles/Output.styled";
-import { termContext } from "../Terminal";
 
 const Welcome: React.FC = () => {
-  const { arg } = useContext(termContext);
-  return arg.length > 0 ? (
-    <UsageDiv>Usage: about</UsageDiv>
-  ) : (
-    <HeroContainer>
+  return (
+    <HeroContainer data-testid="welcome">
       <div className="info-section">
         <PreName>
           {`        
     _____       __     _   __      _            
    / ___/____ _/ /_   / | / /___ _(_)___  ____ _
-   \\__ \\/ __ \`/ __/  /  |/ / __ \`/ / __ \/ __ \`/
+   \\__ \\/ __ \`/ __/  /  |/ / __ \`/ / __  / __ \`/
   ___/ / /_/ / /_   / /|  / /_/ / / / / / /_/ / 
  /____/\\__,_/\\___/ /_/ |_/\\__,_/_/_/ /_/\\__, /  
                                        /____/   
@@ -74,7 +68,7 @@ const Welcome: React.FC = () => {
                      %p||\`~~'.#\`
                       ^Wp  ,#T
                      :b''@@b^}
-                  ,^  \   \` 'b 3-
+                  ,^     \` 'b 3-
               .<\` 'p   ^v   #   b   *.
             {      }   #"GpGb   [
             C      3 * @#######Nl      \`

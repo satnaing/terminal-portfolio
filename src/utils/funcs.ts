@@ -6,7 +6,7 @@ import theme from "../components/styles/themes";
  * @param {number} num - The number of tabs
  * @returns {string} tabs - Tab string
  */
-export const generateTabs = (num: number = 0): string => {
+export const generateTabs = (num = 0): string => {
   let tabs = "\xA0\xA0";
   for (let i = 0; i < num; i++) {
     tabs += "\xA0";
@@ -108,7 +108,7 @@ export const argTab = (
 
   // 4) if input starts with 'themes set ' + theme
   else if (_.startsWith(inputVal, "themes set ")) {
-    _.keys(theme).forEach((t) => {
+    _.keys(theme).forEach(t => {
       if (_.startsWith(t, _.split(inputVal, " ")[2])) {
         hintsCmds = [...hintsCmds, t];
       }
@@ -130,7 +130,7 @@ export const argTab = (
 
   // 7) if input is 'socials go '
   else if (_.startsWith(inputVal, "socials go ")) {
-    ["1.Github", "2.Dev.to", "3.Facebook", "4.Instagram"].forEach((t) => {
+    ["1.Github", "2.Dev.to", "3.Facebook", "4.Instagram"].forEach(t => {
       hintsCmds = [...hintsCmds, t];
     });
     return hintsCmds;
@@ -143,7 +143,7 @@ export const argTab = (
       "2.Haru Fashion",
       "3.Haru API",
       "4.Tip Calculator",
-    ].forEach((t) => {
+    ].forEach(t => {
       hintsCmds = [...hintsCmds, t];
     });
     return hintsCmds;

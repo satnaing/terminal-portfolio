@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import _ from "lodash";
-import themes, { Theme } from "../components/styles/themes";
+import themes from "../components/styles/themes";
 import { setToLS, getFromLS } from "../utils/storage";
+import { DefaultTheme } from "styled-components";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>(themes.dark);
+  const [theme, setTheme] = useState<DefaultTheme>(themes.dark);
   const [themeLoaded, setThemeLoaded] = useState(false);
 
-  const setMode = (mode: Theme) => {
+  const setMode = (mode: DefaultTheme) => {
     setToLS("tsn-theme", mode.name);
     setTheme(mode);
   };

@@ -11,15 +11,27 @@ import History from "./commands/History";
 import Projects from "./commands/Projects";
 import Socials from "./commands/Socials";
 import Themes from "./commands/Themes";
-import { OutputContainer } from "./styles/Output.styled";
+import { OutputContainer, UsageDiv } from "./styles/Output.styled";
+import { termContext } from "./Terminal";
+import { useContext } from "react";
 
 type Props = {
+  index: number;
   cmd: string;
 };
 
-const Output: React.FC<Props> = ({ cmd }) => {
+const Output: React.FC<Props> = ({ index, cmd }) => {
+  const { arg } = useContext(termContext);
+
+  const specialCmds = ["projects", "socials", "themes", "echo"];
+
+  // return 'Usage: <cmd>' if command arg is not valid
+  // eg: about tt
+  if (!specialCmds.includes(cmd) && arg.length > 0)
+    return <UsageDiv data-testid="usage-output">Usage: {cmd}</UsageDiv>;
+
   return (
-    <OutputContainer>
+    <OutputContainer data-testid={index === 0 ? "latest-output" : null}>
       {
         {
           about: <About />,
@@ -31,11 +43,11 @@ const Output: React.FC<Props> = ({ cmd }) => {
           help: <Help />,
           history: <History />,
           projects: <Projects />,
-          pwd: <GeneralOutput cmd="pwd">/home/satnaing</GeneralOutput>,
+          pwd: <GeneralOutput>/home/satnaing</GeneralOutput>,
           socials: <Socials />,
           themes: <Themes />,
           welcome: <Welcome />,
-          whoami: <GeneralOutput cmd="whoami">visitor</GeneralOutput>,
+          whoami: <GeneralOutput>visitor</GeneralOutput>,
         }[cmd]
       }
     </OutputContainer>

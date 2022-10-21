@@ -1,12 +1,11 @@
 import { createContext, useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
-import { Theme } from "./components/styles/themes";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 import { useTheme } from "./hooks/useTheme";
 import GlobalStyle from "./components/styles/GlobalStyle";
 import Terminal from "./components/Terminal";
 
 export const themeContext = createContext<
-  ((switchTheme: Theme) => void) | null
+  ((switchTheme: DefaultTheme) => void) | null
 >(null);
 
 function App() {
@@ -20,20 +19,20 @@ function App() {
 
   // Update meta tag colors when switching themes
   useEffect(() => {
-    if (document) {
-      document!
-        .querySelector('meta[name="theme-color"]')!
-        .setAttribute("content", theme.colors.body);
-      document!
-        .querySelector('meta[name="msapplication-TileColor"]')!
-        .setAttribute("content", theme.colors.body);
-      document!
-        .querySelector('link[rel="mask-icon"]')!
-        .setAttribute("color", theme.colors.body);
-    }
+    const themeColor = theme.colors?.body;
+
+    const metaThemeColor = document.querySelector("meta[name='theme-color']");
+    const maskIcon = document.querySelector("link[rel='mask-icon']");
+    const metaMsTileColor = document.querySelector(
+      "meta[name='msapplication-TileColor']"
+    );
+
+    metaThemeColor && metaThemeColor.setAttribute("content", themeColor);
+    metaMsTileColor && metaMsTileColor.setAttribute("content", themeColor);
+    maskIcon && maskIcon.setAttribute("color", themeColor);
   }, [selectedTheme]);
 
-  const themeSwitcher = (switchTheme: Theme) => {
+  const themeSwitcher = (switchTheme: DefaultTheme) => {
     setSelectedTheme(switchTheme);
     setMode(switchTheme);
   };
