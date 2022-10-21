@@ -80,7 +80,7 @@ const Terminal = () => {
     setInputVal("");
     setRerender(true);
     setHints([]);
-    setPointer(0);
+    setPointer(-1);
   };
 
   const clearHistory = () => {
@@ -101,7 +101,7 @@ const Terminal = () => {
 
   // Keyboard Press
   const [hints, setHints] = useState<string[]>([]);
-  const [pointer, setPointer] = useState(0);
+  const [pointer, setPointer] = useState(-1);
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setRerender(false);
     const ctrlI = e.ctrlKey && e.key.toLowerCase() === "i";
@@ -144,21 +144,28 @@ const Terminal = () => {
 
     // Go previous cmd
     if (e.key === "ArrowUp") {
-      if (pointer < cmdHistory.length) {
-        setInputVal(cmdHistory[pointer]);
-        pointer + 1 !== cmdHistory.length &&
-          setPointer(prevState => prevState + 1);
-        pointer + 1 !== cmdHistory.length && inputRef?.current?.blur();
-      }
+      if (pointer >= cmdHistory.length) return;
+
+      if (pointer + 1 === cmdHistory.length) return;
+
+      setInputVal(cmdHistory[pointer + 1]);
+      setPointer(prevState => prevState + 1);
+      inputRef?.current?.blur();
     }
 
     // Go next cmd
     if (e.key === "ArrowDown") {
-      if (pointer > 0) {
-        setInputVal(cmdHistory[pointer - 1]);
-        pointer - 1 !== 0 && setPointer(prevState => prevState - 1);
-        pointer - 1 !== 0 && inputRef?.current?.blur();
+      if (pointer < 0) return;
+
+      if (pointer === 0) {
+        setInputVal("");
+        setPointer(-1);
+        return;
       }
+
+      setInputVal(cmdHistory[pointer - 1]);
+      setPointer(prevState => prevState - 1);
+      inputRef?.current?.blur();
     }
   };
   // For caret position at the end
