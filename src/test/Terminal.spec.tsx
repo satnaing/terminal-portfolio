@@ -11,6 +11,23 @@ function setup(jsx: JSX.Element) {
   };
 }
 
+const allCmds = [
+  "about",
+  "clear",
+  "echo",
+  "education",
+  "email",
+  "gui",
+  "help",
+  "history",
+  "projects",
+  "pwd",
+  "socials",
+  "themes",
+  "welcome",
+  "whoami",
+];
+
 describe("Terminal Component", () => {
   let terminalInput: HTMLInputElement;
   let user: UserEvent;
@@ -132,18 +149,12 @@ describe("Terminal Component", () => {
   });
 
   describe("Invalid Arguments", () => {
-    const commands = [
-      "about",
-      "clear",
-      "education",
-      "gui",
-      "help",
-      "history",
-      "pwd",
-      "welcome",
-      "whoami",
-    ];
-    commands.forEach(cmd => {
+    const specialUsageCmds = ["themes", "socials", "projects"];
+    const usageCmds = allCmds.filter(
+      cmd => !["echo", ...specialUsageCmds].includes(cmd)
+    );
+
+    usageCmds.forEach(cmd => {
       it(`should return usage component for ${cmd} cmd with invalid arg`, async () => {
         await user.type(terminalInput, `${cmd} sth{enter}`);
         expect(screen.getByTestId("usage-output").innerHTML).toBe(
@@ -152,8 +163,7 @@ describe("Terminal Component", () => {
       });
     });
 
-    const cmdsWithArgs = ["projects", "socials", "themes"];
-    cmdsWithArgs.forEach(cmd => {
+    specialUsageCmds.forEach(cmd => {
       it(`should return usage component for '${cmd}' cmd with invalid arg`, async () => {
         await user.type(terminalInput, `${cmd} sth{enter}`);
         expect(screen.getByTestId(`${cmd}-invalid-arg`)).toBeInTheDocument();
