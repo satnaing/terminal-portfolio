@@ -194,12 +194,20 @@ describe("Terminal Component", () => {
       expect(screen.getByTestId("terminal-wrapper").children.length).toBe(1);
     });
 
-    it("should go to previous cmd when 'UP Arrow' is pressed", async () => {
+    it("should go to previous back and forth when 'Up & Down Arrow' is pressed", async () => {
       await user.type(terminalInput, "about{enter}");
-      await user.keyboard("{arrowup}");
+      await user.type(terminalInput, "whoami{enter}");
+      await user.type(terminalInput, "pwd{enter}");
+      await user.keyboard("{arrowup>3}");
       expect(terminalInput.value).toBe("about");
-      await user.keyboard("{arrowup}");
+      await user.keyboard("{arrowup>2}");
       expect(terminalInput.value).toBe("welcome");
+      await user.keyboard("{arrowdown>2}");
+      expect(terminalInput.value).toBe("whoami");
+      await user.keyboard("{arrowdown}");
+      expect(terminalInput.value).toBe("pwd");
+      await user.keyboard("{arrowdown}");
+      expect(terminalInput.value).toBe("");
     });
   });
 });
