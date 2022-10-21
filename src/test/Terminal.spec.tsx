@@ -153,6 +153,21 @@ describe("Terminal Component", () => {
         "contact@satnaing.dev"
       );
     });
+
+    const nums = [1, 2, 3, 4];
+    nums.forEach(num => {
+      it(`should redirect to project URL when user type 'projects go ${num}' cmd`, async () => {
+        await user.type(terminalInput, `projects go ${num}{enter}`);
+        expect(window.open).toHaveBeenCalled();
+      });
+    });
+
+    nums.forEach(num => {
+      it(`should redirect to social media when user type 'socials go ${num}' cmd`, async () => {
+        await user.type(terminalInput, `socials go ${num}{enter}`);
+        expect(window.open).toHaveBeenCalled();
+      });
+    });
   });
 
   describe("Invalid Arguments", () => {
