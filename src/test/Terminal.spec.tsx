@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
 import { render, screen, userEvent } from "../utils/test-utils";
 import Terminal, { commands } from "../components/Terminal";
