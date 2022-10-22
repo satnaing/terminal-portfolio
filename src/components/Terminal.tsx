@@ -65,6 +65,8 @@ const Terminal = () => {
   const [inputVal, setInputVal] = useState("");
   const [cmdHistory, setCmdHistory] = useState<string[]>(["welcome"]);
   const [rerender, setRerender] = useState(false);
+  const [hints, setHints] = useState<string[]>([]);
+  const [pointer, setPointer] = useState(-1);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,8 +102,6 @@ const Terminal = () => {
   }, [containerRef]);
 
   // Keyboard Press
-  const [hints, setHints] = useState<string[]>([]);
-  const [pointer, setPointer] = useState(-1);
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setRerender(false);
     const ctrlI = e.ctrlKey && e.key.toLowerCase() === "i";
@@ -110,6 +110,8 @@ const Terminal = () => {
     // if Tab or Ctrl + I
     if (e.key === "Tab" || ctrlI) {
       e.preventDefault();
+      if (!inputVal) return;
+
       let hintsCmds: string[] = [];
       commands.forEach(({ cmd }) => {
         if (_.startsWith(cmd, inputVal)) {
@@ -168,6 +170,7 @@ const Terminal = () => {
       inputRef?.current?.blur();
     }
   };
+
   // For caret position at the end
   useEffect(() => {
     const timer = setTimeout(() => {
