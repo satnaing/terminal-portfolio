@@ -1,11 +1,16 @@
 import { useContext, useEffect } from "react";
 import _ from "lodash";
 import { themeContext } from "../../App";
-import { UsageDiv, Wrapper } from "../styles/Output.styled";
+import { Wrapper } from "../styles/Output.styled";
 import { ThemeSpan, ThemesWrapper } from "../styles/Themes.styled";
-import { checkThemeRedirect, getCurrentCmdArry } from "../../utils/funcs";
+import {
+  checkThemeRedirect,
+  getCurrentCmdArry,
+  isArgInvalid,
+} from "../../utils/funcs";
 import { termContext } from "../Terminal";
 import theme from "../styles/themes";
+import Usage from "../Usage";
 
 const myThemes = _.keys(theme);
 
@@ -25,19 +30,11 @@ const Themes: React.FC = () => {
   }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
-  const checkArg = (a: string[]) => {
-    if (a[0] !== "set" || !_.includes(myThemes, a[1]) || arg.length > 2)
-      return (
-        <UsageDiv data-testid="themes-invalid-arg">
-          Usage: themes set &#60;theme-name&#62; <br />
-          eg: themes set dark
-        </UsageDiv>
-      );
-    return null;
-  };
+  const checkArg = () =>
+    isArgInvalid(arg, "set", myThemes) ? <Usage cmd="themes" /> : null;
 
   return arg.length > 0 || arg.length > 2 ? (
-    checkArg(arg)
+    checkArg()
   ) : (
     <Wrapper data-testid="themes">
       <ThemesWrapper>
@@ -45,10 +42,7 @@ const Themes: React.FC = () => {
           <ThemeSpan key={myTheme}>{myTheme}</ThemeSpan>
         ))}
       </ThemesWrapper>
-      <UsageDiv marginY>
-        Usage: themes set &#60;theme-name&#62; <br />
-        eg: themes set dark
-      </UsageDiv>
+      <Usage cmd="themes" marginY />
     </Wrapper>
   );
 };

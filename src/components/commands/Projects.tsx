@@ -1,7 +1,9 @@
 import { useContext, useEffect } from "react";
-import _ from "lodash";
-import { checkRedirect, getCurrentCmdArry } from "../../utils/funcs";
-import { UsageDiv } from "../styles/Output.styled";
+import {
+  checkRedirect,
+  getCurrentCmdArry,
+  isArgInvalid,
+} from "../../utils/funcs";
 import {
   ProjectContainer,
   ProjectDesc,
@@ -9,6 +11,7 @@ import {
   ProjectTitle,
 } from "../styles/Projects.styled";
 import { termContext } from "../Terminal";
+import Usage from "../Usage";
 
 const Projects: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
@@ -26,23 +29,13 @@ const Projects: React.FC = () => {
   }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
-  const checkArg = (a: string[]) => {
-    if (
-      a[0] !== "go" ||
-      !_.includes([1, 2, 3, 4], parseInt(a[1])) ||
-      arg.length > 2
-    )
-      return (
-        <UsageDiv data-testid="projects-invalid-arg">
-          Usage: projects go &#60;project-no&#62; <br />
-          eg: projects go 1
-        </UsageDiv>
-      );
-    return null;
-  };
+  const checkArg = () =>
+    isArgInvalid(arg, "go", ["1", "2", "3", "4"]) ? (
+      <Usage cmd="projects" />
+    ) : null;
 
   return arg.length > 0 || arg.length > 2 ? (
-    checkArg(arg)
+    checkArg()
   ) : (
     <div data-testid="projects">
       <ProjectsIntro>
@@ -55,10 +48,7 @@ const Projects: React.FC = () => {
           <ProjectDesc>{desc}</ProjectDesc>
         </ProjectContainer>
       ))}
-      <UsageDiv marginY>
-        Usage: projects go &#60;project-no&#62; <br />
-        eg: projects go 1
-      </UsageDiv>
+      <Usage cmd="projects" marginY />
     </div>
   );
 };

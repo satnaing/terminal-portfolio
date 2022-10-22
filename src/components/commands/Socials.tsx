@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
-import _ from "lodash";
 import { ProjectsIntro } from "../styles/Projects.styled";
 import { Cmd, CmdDesc, CmdList, HelpWrapper } from "../styles/Help.styled";
 import {
   checkRedirect,
   generateTabs,
   getCurrentCmdArry,
+  isArgInvalid,
 } from "../../utils/funcs";
-import { UsageDiv } from "../styles/Output.styled";
 import { termContext } from "../Terminal";
+import Usage from "../Usage";
 
 const Socials: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
@@ -26,23 +26,13 @@ const Socials: React.FC = () => {
   }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
-  const checkArg = (a: string[]) => {
-    if (
-      a[0] !== "go" ||
-      !_.includes([1, 2, 3, 4], parseInt(a[1])) ||
-      arg.length > 2
-    )
-      return (
-        <UsageDiv data-testid="socials-invalid-arg">
-          Usage: socials go &#60;social-no&#62; <br />
-          eg: socials go 1
-        </UsageDiv>
-      );
-    return null;
-  };
+  const checkArg = () =>
+    isArgInvalid(arg, "go", ["1", "2", "3", "4"]) ? (
+      <Usage cmd="socials" />
+    ) : null;
 
   return arg.length > 0 || arg.length > 2 ? (
-    checkArg(arg)
+    checkArg()
   ) : (
     <HelpWrapper data-testid="socials">
       <ProjectsIntro>Here are my social links</ProjectsIntro>
@@ -53,10 +43,7 @@ const Socials: React.FC = () => {
           <CmdDesc>- {url}</CmdDesc>
         </CmdList>
       ))}
-      <UsageDiv marginY>
-        Usage: socials go &#60;social-id&#62; <br />
-        eg: socials go 1
-      </UsageDiv>
+      <Usage cmd="socials" marginY />
     </HelpWrapper>
   );
 };
