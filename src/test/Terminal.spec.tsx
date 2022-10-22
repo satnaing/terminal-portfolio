@@ -196,6 +196,22 @@ describe("Terminal Component", () => {
         await user.type(terminalInput, `${cmd} ${arg} extra-arg{enter}`);
         expect(screen.getByTestId(`${cmd}-invalid-arg`)).toBeInTheDocument();
       });
+
+      it(`should return usage component for '${cmd}' cmd with incorrect option`, async () => {
+        const arg = cmd === "themes" ? "go light" : "set 4";
+        window.open = vi.fn();
+
+        // firstly run commands correct options
+        await user.type(terminalInput, `projects go 4{enter}`);
+        await user.type(terminalInput, `socials go 4{enter}`);
+        await user.type(terminalInput, `themes set espresso{enter}`);
+
+        // then run cmd with incorrect options
+        await user.type(terminalInput, `${cmd} ${arg}{enter}`);
+        expect(window.open).toBeCalledTimes(2);
+
+        // TODO: Test theme change
+      });
     });
   });
 

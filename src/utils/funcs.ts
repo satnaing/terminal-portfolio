@@ -38,61 +38,41 @@ export const getCurrentCmdArry = (history: string[]) =>
 
 /**
  * Check current render makes redirect
- * @param {string[]} arg - arg of the command
  * @param {boolean} rerender - is submitted or not
  * @param {string[]} currentCommand - current submitted command
  * @param {string} command - the command of the function
  * @returns {boolean} redirect - true | false
  */
 export const checkRedirect = (
-  arg: string[],
   rerender: boolean,
   currentCommand: string[],
   command: string
-): boolean => {
-  if (
-    arg.length > 0 && // contains arg
-    arg[0] === "go" && // first arg is 'go'
-    rerender && // is submitted
-    currentCommand[0] === command && // current command starts with ('socials'|'projects')
-    currentCommand.length > 1 && // current command has arg
-    currentCommand.length < 4 && // if num of arg is valid (not `projects go 1 sth`)
-    _.includes([1, 2, 3, 4], parseInt(currentCommand[2])) // arg last part is one of id
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
+): boolean =>
+  rerender && // is submitted
+  currentCommand[0] === command && // current command starts with ('socials'|'projects')
+  currentCommand[1] === "go" && // first arg is 'go'
+  currentCommand.length > 1 && // current command has arg
+  currentCommand.length < 4 && // if num of arg is valid (not `projects go 1 sth`)
+  _.includes([1, 2, 3, 4], parseInt(currentCommand[2])); // arg last part is one of id
 
 /**
  * Check current render makes redirect for theme
- * @param {string[]} arg - arg of the command
  * @param {boolean} rerender - is submitted or not
  * @param {string[]} currentCommand - current submitted command
  * @param {string[]} themes - the command of the function
  * @returns {boolean} redirect - true | false
  */
 export const checkThemeSwitch = (
-  arg: string[],
   rerender: boolean,
   currentCommand: string[],
   themes: string[]
-): boolean => {
-  if (
-    arg.length > 0 && // contains arg
-    arg[0] === "set" && // first arg is 'set'
-    rerender && // is submitted
-    currentCommand[0] === "themes" && // current command starts with ('themes')
-    currentCommand.length > 1 && // current command has arg
-    currentCommand.length < 4 && // if num of arg is valid (not `themes set light sth`)
-    _.includes(themes, currentCommand[2]) // arg last part is one of id
-  ) {
-    return true;
-  } else {
-    return false;
-  }
-};
+): boolean =>
+  rerender && // is submitted
+  currentCommand[0] === "themes" && // current command starts with 'themes'
+  currentCommand[1] === "set" && // first arg is 'set'
+  currentCommand.length > 1 && // current command has arg
+  currentCommand.length < 4 && // if num of arg is valid (not `themes set light sth`)
+  _.includes(themes, currentCommand[2]); // arg last part is one of id
 
 /**
  * Perform advanced tab actions

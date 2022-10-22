@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
 
   /* ===== check current command is redirect ===== */
   useEffect(() => {
-    if (checkRedirect(arg, rerender, currentCommand, "projects")) {
+    if (checkRedirect(rerender, currentCommand, "projects")) {
       projects.forEach(({ id, url }) => {
         id === parseInt(arg[1]) && window.open(url, "_blank");
       });

@@ -18,7 +18,7 @@ const Socials: React.FC = () => {
 
   /* ===== check current command makes redirect ===== */
   useEffect(() => {
-    if (checkRedirect(arg, rerender, currentCommand, "socials")) {
+    if (checkRedirect(rerender, currentCommand, "socials")) {
       socials.forEach(({ id, url }) => {
         id === parseInt(arg[1]) && window.open(url, "_blank");
       });
