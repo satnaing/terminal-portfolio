@@ -13,6 +13,18 @@ function App() {
   const { theme, themeLoaded, setMode } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState(theme);
 
+  // Disable browser's default behavior
+  // to prevent the page go up when Up Arrow is pressed
+  useEffect(() => {
+    window.addEventListener(
+      "keydown",
+      e => {
+        ["ArrowUp", "ArrowDown"].indexOf(e.code) > -1 && e.preventDefault();
+      },
+      false
+    );
+  }, []);
+
   useEffect(() => {
     setSelectedTheme(theme);
   }, [themeLoaded]);
