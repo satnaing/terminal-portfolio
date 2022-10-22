@@ -73,7 +73,7 @@ export const checkRedirect = (
  * @param {string[]} themes - the command of the function
  * @returns {boolean} redirect - true | false
  */
-export const checkThemeRedirect = (
+export const checkThemeSwitch = (
   arg: string[],
   rerender: boolean,
   currentCommand: string[],

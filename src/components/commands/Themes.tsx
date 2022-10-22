@@ -4,7 +4,7 @@ import { themeContext } from "../../App";
 import { Wrapper } from "../styles/Output.styled";
 import { ThemeSpan, ThemesWrapper } from "../styles/Themes.styled";
 import {
-  checkThemeRedirect,
+  checkThemeSwitch,
   getCurrentCmdArry,
   isArgInvalid,
 } from "../../utils/funcs";
@@ -24,7 +24,7 @@ const Themes: React.FC = () => {
 
   /* ===== check current command makes redirect ===== */
   useEffect(() => {
-    if (checkThemeRedirect(arg, rerender, currentCommand, myThemes)) {
+    if (checkThemeSwitch(arg, rerender, currentCommand, myThemes)) {
       themeSwitcher?.(theme[currentCommand[2]]);
     }
   }, [arg, rerender, currentCommand]);
