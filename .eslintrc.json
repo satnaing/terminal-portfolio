@@ -22,7 +22,6 @@
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": 0,
     "camelcase": "error",
-    "@typescript-eslint/no-non-null-assertion": "off",
     "no-duplicate-imports": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "react/prop-types": 0,

@@ -19,7 +19,7 @@ const Themes: React.FC = () => {
   /* ===== check current command makes redirect ===== */
   useEffect(() => {
     if (checkThemeRedirect(arg, rerender, currentCommand, myThemes)) {
-      themeSwitcher!(theme[currentCommand[2]]);
+      themeSwitcher?.(theme[currentCommand[2]]);
     }
   }, [arg, rerender, currentCommand]);
 

@@ -14,7 +14,7 @@ const Help: React.FC = () => {
       {commands.map(({ cmd, desc, tab }) => (
         <CmdList key={cmd}>
           <Cmd>{cmd}</Cmd>
-          {generateTabs(tab!)}
+          {generateTabs(tab)}
           <CmdDesc>- {desc}</CmdDesc>
         </CmdList>
       ))}

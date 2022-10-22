@@ -5,7 +5,7 @@ import { termContext } from "../Terminal";
 const Clear: React.FC = () => {
   const { arg, clearHistory } = useContext(termContext);
   useEffect(() => {
-    if (arg.length < 1) clearHistory!();
+    if (arg.length < 1) clearHistory?.();
   }, []);
   return arg.length > 0 ? <UsageDiv>Usage: clear</UsageDiv> : <></>;
 };
