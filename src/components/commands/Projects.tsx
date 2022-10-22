@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import _ from "lodash";
-import { checkRedirect } from "../../utils/funcs";
+import { checkRedirect, getCurrentCmdArry } from "../../utils/funcs";
 import { UsageDiv } from "../styles/Output.styled";
 import {
   ProjectContainer,
@@ -14,19 +14,24 @@ const Projects: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
 
   /* ===== get current command ===== */
-  const currentCommand = _.split(history[0], " ");
+  const currentCommand = getCurrentCmdArry(history);
 
   /* ===== check current command is redirect ===== */
-  if (checkRedirect(arg, rerender, currentCommand, "projects")) {
-    projects.forEach(({ id, url }) => {
-      id === parseInt(arg[1]) && window.open(url, "_blank");
-    });
-    return null;
-  }
+  useEffect(() => {
+    if (checkRedirect(arg, rerender, currentCommand, "projects")) {
+      projects.forEach(({ id, url }) => {
+        id === parseInt(arg[1]) && window.open(url, "_blank");
+      });
+    }
+  }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
   const checkArg = (a: string[]) => {
-    if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
+    if (
+      a[0] !== "go" ||
+      !_.includes([1, 2, 3, 4], parseInt(a[1])) ||
+      arg.length > 2
+    )
       return (
         <UsageDiv data-testid="projects-invalid-arg">
           Usage: projects go &#60;project-no&#62; <br />
@@ -36,7 +41,7 @@ const Projects: React.FC = () => {
     return null;
   };
 
-  return arg.length > 0 ? (
+  return arg.length > 0 || arg.length > 2 ? (
     checkArg(arg)
   ) : (
     <div data-testid="projects">

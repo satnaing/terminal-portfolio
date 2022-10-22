@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import _ from "lodash";
 import { ProjectsIntro } from "../styles/Projects.styled";
 import { Cmd, CmdDesc, CmdList, HelpWrapper } from "../styles/Help.styled";
-import { checkRedirect, generateTabs } from "../../utils/funcs";
+import {
+  checkRedirect,
+  generateTabs,
+  getCurrentCmdArry,
+} from "../../utils/funcs";
 import { UsageDiv } from "../styles/Output.styled";
 import { termContext } from "../Terminal";
 
@@ -10,19 +14,24 @@ const Socials: React.FC = () => {
   const { arg, history, rerender } = useContext(termContext);
 
   /* ===== get current command ===== */
-  const currentCommand = _.split(history[0], " ");
+  const currentCommand = getCurrentCmdArry(history);
 
   /* ===== check current command makes redirect ===== */
-  if (checkRedirect(arg, rerender, currentCommand, "socials")) {
-    socials.forEach(({ id, url }) => {
-      id === parseInt(arg[1]) && window.open(url, "_blank");
-    });
-    return null;
-  }
+  useEffect(() => {
+    if (checkRedirect(arg, rerender, currentCommand, "socials")) {
+      socials.forEach(({ id, url }) => {
+        id === parseInt(arg[1]) && window.open(url, "_blank");
+      });
+    }
+  }, [arg, rerender, currentCommand]);
 
   /* ===== check arg is valid ===== */
   const checkArg = (a: string[]) => {
-    if (a[0] !== "go" || !_.includes([1, 2, 3, 4], parseInt(a[1])))
+    if (
+      a[0] !== "go" ||
+      !_.includes([1, 2, 3, 4], parseInt(a[1])) ||
+      arg.length > 2
+    )
       return (
         <UsageDiv data-testid="socials-invalid-arg">
           Usage: socials go &#60;social-no&#62; <br />
@@ -32,7 +41,7 @@ const Socials: React.FC = () => {
     return null;
   };
 
-  return arg.length > 0 ? (
+  return arg.length > 0 || arg.length > 2 ? (
     checkArg(arg)
   ) : (
     <HelpWrapper data-testid="socials">

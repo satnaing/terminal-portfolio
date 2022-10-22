@@ -15,6 +15,14 @@ export const generateTabs = (num = 0): string => {
 };
 
 /**
+ * Transform current array into array and return back the array
+ * @param {string[]} history - The history array
+ * @returns {string[]} array of cmd string
+ */
+export const getCurrentCmdArry = (history: string[]) =>
+  _.split(history[0].trim(), " ");
+
+/**
  * Check current render makes redirect
  * @param {string[]} arg - arg of the command
  * @param {boolean} rerender - is submitted or not
@@ -34,6 +42,7 @@ export const checkRedirect = (
     rerender && // is submitted
     currentCommand[0] === command && // current command starts with ('socials'|'projects')
     currentCommand.length > 1 && // current command has arg
+    currentCommand.length < 4 && // if num of arg is valid (not `projects go 1 sth`)
     _.includes([1, 2, 3, 4], parseInt(currentCommand[2])) // arg last part is one of id
   ) {
     return true;
@@ -62,6 +71,7 @@ export const checkThemeRedirect = (
     rerender && // is submitted
     currentCommand[0] === "themes" && // current command starts with ('themes')
     currentCommand.length > 1 && // current command has arg
+    currentCommand.length < 4 && // if num of arg is valid (not `themes set light sth`)
     _.includes(themes, currentCommand[2]) // arg last part is one of id
   ) {
     return true;
