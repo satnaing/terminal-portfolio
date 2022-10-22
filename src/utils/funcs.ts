@@ -15,7 +15,8 @@ export const generateTabs = (num = 0): string => {
 };
 
 /**
- * Transform current array into array and return back the array
+ * Transform current cmd & arg into array
+ * then return back the array
  * @param {string[]} history - The history array
  * @returns {string[]} array of cmd string
  */
