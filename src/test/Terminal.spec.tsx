@@ -190,6 +190,12 @@ describe("Terminal Component", () => {
         await user.type(terminalInput, `${cmd} sth{enter}`);
         expect(screen.getByTestId(`${cmd}-invalid-arg`)).toBeInTheDocument();
       });
+
+      it(`should return usage component for '${cmd}' cmd with extra args`, async () => {
+        const arg = cmd === "themes" ? "set light" : "go 1";
+        await user.type(terminalInput, `${cmd} ${arg} extra-arg{enter}`);
+        expect(screen.getByTestId(`${cmd}-invalid-arg`)).toBeInTheDocument();
+      });
     });
   });
 
