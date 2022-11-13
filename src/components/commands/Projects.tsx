@@ -56,27 +56,27 @@ const Projects: React.FC = () => {
 const projects = [
   {
     id: 1,
-    title: "Sat Naing's Blog",
-    desc: "My personal blog where I can write down my thoughts and experiences.",
-    url: "https://satnaing.dev/blog/",
+    title: "Vocabulaire",
+    desc: "My second thesis project. Vocabulaire is a mobile app for learning languages 🗺️. It was built with Ionic Framework + Angular and I tried to follow the best software development practises while developing it, such as TDD.",
+    url: "https://github.com/arialdev/vocabulaire/",
   },
   {
     id: 2,
-    title: "Haru Fashion",
-    desc: "An ecommerce web application where users can browse various products and make purchases.",
-    url: "https://haru-fashion.vercel.app/",
+    title: "Awards Predictions (WIP)",
+    desc: "An Angular + NodeJS application for voting for your favorites nominees in important ceremonies such as Emmy or Academy Awards.",
+    url: "https://github.com/arialdev/awards-predictions",
   },
   {
     id: 3,
-    title: "Haru API",
-    desc: "A RESTful API developed for the Haru fashion ecommerce project.",
-    url: "https://satnaing.github.io/haru-api/",
+    title: "VSCode4Teaching",
+    desc: "Visual Studio Code extension that brings the programming exercises of a course directly to the student's editor, so that the teacher of that course can check the progress of the students and help them.",
+    url: "https://github.com/codeurjc-students/2019-VSCode4Teaching",
   },
   {
     id: 4,
-    title: "Tip Calculator",
-    desc: "A Progressive Web App (PWA) that can calculate the tip amount.",
-    url: "https://splitter-sn.netlify.app/",
+    title: "AdventJS solutions",
+    desc: `I love advent calendars for programmers. My favorite one is AdventJS by @midudev. These are simple exercises, so I prefer to create 'smart' solutions to improve my skills (such as one-liner programs, have a look to 2021 - day 10 🤯).`,
+    url: "https://github.com/arialdev/adventjs",
   },
 ];
 
