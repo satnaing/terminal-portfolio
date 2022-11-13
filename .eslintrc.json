@@ -25,7 +25,7 @@
     "no-duplicate-imports": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "react/prop-types": 0,
-    "linebreak-style": ["warn", "unix"]
+    "linebreak-style": ["warn", "windows"]
   },
   "settings": {
     "react": {
