@@ -17,16 +17,20 @@ const Education: React.FC = () => {
 
 const eduBg = [
   {
-    title: "B.Sc (Hons) in Computing",
-    desc: "Edinburgh Napier University | 2018 ~ 2019",
+    title: "Computer Science Engineering",
+    desc: "Rey Juan Carlos University | 2017 ~ 2022",
   },
   {
-    title: "HND in Computing & System Development",
-    desc: "Info Myanmar University | 2016 - 2018",
+    title: "JavaScript: The Advanced Concepts (2022 Update)",
+    desc: "Zero to Mastery Academy | 2022",
   },
   {
-    title: "IELTS 6.5",
-    desc: "British Council Myanmar | 2017",
+    title: "Software Engineering",
+    desc: "Rey Juan Carlos University | 2017 - 2021",
+  },
+  {
+    title: "C1 Advanced English Certificate",
+    desc: "Cambridge University | 2018",
   },
 ];
 
