@@ -146,7 +146,7 @@ export const argTab = (
       "1.Sat Naing's Blog",
       "2.Haru Fashion",
       "3.Haru API",
-      "4.Tip Calculator",
+      "4.AstroPaper Blog Theme",
     ].forEach(t => {
       hintsCmds = [...hintsCmds, t];
     });

@@ -74,9 +74,9 @@ const projects = [
   },
   {
     id: 4,
-    title: "Tip Calculator",
-    desc: "A Progressive Web App (PWA) that can calculate the tip amount.",
-    url: "https://splitter-sn.netlify.app/",
+    title: "AstroPaper Blog Theme",
+    desc: "A minimal, accessible and SEO-friendly Astro blog theme.",
+    url: "https://astro-paper.pages.dev/",
   },
 ];
 
