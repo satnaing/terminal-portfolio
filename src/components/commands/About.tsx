@@ -8,15 +8,22 @@ const About: React.FC = () => {
   return (
     <AboutWrapper data-testid="about">
       <p>
-        Hi, my name is <HighlightSpan>Sat Naing</HighlightSpan>!
+        <HighlightSpan>Penis.AI</HighlightSpan>
       </p>
       <p>
-        I'm <HighlightAlt>a full-stack developer</HighlightAlt> based in Yangon,
-        Myanmar.
+        Penis.AI Terminal<HighlightAlt> is a decentralized platform build on Solana,</HighlightAlt> designed to integrate advanced AI functionalities with the speed and efficiency of blockchain technology.
       </p>
       <p>
-        I am passionate about writing codes and <br />
-        developing web applications to solve real-life challenges.
+      It’s hard, it’s fast, and it doesn’t apologize for delivering exactly what you didn’t know you needed. <br>
+      </br>
+      Because in a world full of soft ideas, someone had to go all in.
+
+
+
+
+
+
+<br />
       </p>
     </AboutWrapper>
   );

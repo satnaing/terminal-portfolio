@@ -37,17 +37,12 @@ const Output: React.FC<Props> = ({ index, cmd }) => {
           about: <About />,
           clear: <Clear />,
           echo: <Echo />,
-          education: <Education />,
-          email: <Email />,
-          gui: <Gui />,
           help: <Help />,
-          history: <History />,
-          projects: <Projects />,
-          pwd: <GeneralOutput>/home/satnaing</GeneralOutput>,
+          pwd: <GeneralOutput>/home/penis.ai</GeneralOutput>,
           socials: <Socials />,
           themes: <Themes />,
           welcome: <Welcome />,
-          whoami: <GeneralOutput>visitor</GeneralOutput>,
+          whoami: <GeneralOutput>spermatozoid</GeneralOutput>,
         }[cmd]
       }
     </OutputContainer>
