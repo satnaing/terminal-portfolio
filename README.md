@@ -10,6 +10,10 @@ My perfolio website in terminal version developed with React, TypeScript and Sty
 
 Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react
 
+## Demo
+
+[Demo - try it in your editor](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=App&libCreator=satnaing){:target="_blank"}
+
 ## Features
 
 - Responsive Design 📱💻
@@ -30,6 +34,13 @@ Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfoli
 **Deployment** - [Netlify](https://app.netlify.com/)
 
 ## Multiple Themes
+
+[Demo - Dark theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=App&libCreator=satnaing){:target="_blank"}
+[Demo - Light theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppLight&libCreator=satnaing){:target="_blank"}
+[Demo - blue-matrix theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppBlue&libCreator=satnaing){:target="_blank"}
+[Demo - espresso theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppEspresso&libCreator=satnaing){:target="_blank"}
+[Demo - green-goblin theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppGreen&libCreator=satnaing){:target="_blank"}
+[Demo - ubuntu theme](https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppUbuntu&libCreator=satnaing){:target="_blank"}
 
 Currently, this website supports 6 themes. Type `themes` in the terminal for more info.
 ![terminal-portfolio-themes](https://user-images.githubusercontent.com/53733092/194221801-94f1c28b-4865-4b7f-a73e-d41132519bea.png)
@@ -76,6 +87,7 @@ npm run dev
 
 Here are some inspiration for this kind of terminal website. Only some features and functionalities are inspired by these following websites. All codes are written on my own.
 
+- I built this repository using [Jinno](https://www.jinno.app/redirect?from=satnaing&redirect=vs){:target="_blank"}
 - [term m4tt72](https://term.m4tt72.com/)
 - [Forrest](https://fkcodes.com/)
 
