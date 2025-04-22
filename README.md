@@ -87,7 +87,7 @@ npm run dev
 
 Here are some inspiration for this kind of terminal website. Only some features and functionalities are inspired by these following websites. All codes are written on my own.
 
-- I built this repository using [Jinno](https://www.jinno.app/redirect?from=satnaing&redirect=vs){:target="_blank"}
+- I built this repository using [Jinno](https://www.jinno.app/redirect?from=satnaing&redirect=vs)
 - [term m4tt72](https://term.m4tt72.com/)
 - [Forrest](https://fkcodes.com/)
 
