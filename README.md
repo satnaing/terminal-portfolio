@@ -35,12 +35,12 @@ Blog Post: https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfoli
 
 ## Multiple Themes
 
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=App&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - Dark theme</a>
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppLight&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - light theme</a>
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppBlue&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - blue-matrix theme</a>
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppEspresso&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - espresso theme</a>
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppGreen&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - green-goblin theme</a>
-<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppUbuntu&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - ubuntu theme</a>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=App&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - Dark theme</a><br/>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppLight&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - light theme</a><br/>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppBlue&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - blue-matrix theme</a><br/>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppEspresso&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - espresso theme</a><br/>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppGreen&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - green-goblin theme</a><br/>
+<a href="https://www.jinno.app/redirect?from=satnaing&redirect=libary&libName=terminal-portfolio&componentName=AppUbuntu&libCreator=satnaing" target="_blank" rel="noopener noreferrer">Demo - ubuntu theme</a><br/>
 
 Currently, this website supports 6 themes. Type `themes` in the terminal for more info.
 ![terminal-portfolio-themes](https://user-images.githubusercontent.com/53733092/194221801-94f1c28b-4865-4b7f-a73e-d41132519bea.png)
